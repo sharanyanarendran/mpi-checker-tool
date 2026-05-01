@@ -1,8 +1,8 @@
+
 # MPI Static Checker for Fortran (LLVM Flang)
 
 ## Overview
-Static analysis tool to detect MPI-related bugs in Fortran programs using LLVM Flang.
-
+Static analysis tool to detect MPI-related bugs in Fortran programs using LLVM Flang
 ## Features
 - Buffer overflow detection
 - Non-contiguous buffer detection
