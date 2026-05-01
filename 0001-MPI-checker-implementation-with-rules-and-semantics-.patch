@@ -1,0 +1,1494 @@
+From b3291de980f01c58084d4c954bc0a58c92c61c88 Mon Sep 17 00:00:00 2001
+From: sharanyanarendran <sharanya.narendran@gmail.com>
+Date: Fri, 1 May 2026 19:15:34 +0530
+Subject: [PATCH] MPI checker implementation with rules and semantics support
+
+---
+ flang/include/flang/MPICallSite.h        |  43 ++
+ flang/include/flang/Parser/parse-tree.h  |   1 +
+ flang/lib/Semantics/CMakeLists.txt       |   2 +
+ flang/lib/Semantics/mpi-checker.cpp      | 794 +++++++++++++++++++++++
+ flang/lib/Semantics/mpi-checker.h        |  80 +++
+ flang/lib/Semantics/rewrite-parse-tree.h |   4 +-
+ flang/lib/Semantics/rule-engine.cpp      | 384 +++++++++++
+ flang/lib/Semantics/rule-engine.h        |  44 ++
+ flang/lib/Semantics/semantics.cpp        |  17 +
+ 9 files changed, 1367 insertions(+), 2 deletions(-)
+ create mode 100644 flang/include/flang/MPICallSite.h
+ create mode 100644 flang/lib/Semantics/mpi-checker.cpp
+ create mode 100644 flang/lib/Semantics/mpi-checker.h
+ create mode 100644 flang/lib/Semantics/rule-engine.cpp
+ create mode 100644 flang/lib/Semantics/rule-engine.h
+
+diff --git a/flang/include/flang/MPICallSite.h b/flang/include/flang/MPICallSite.h
+new file mode 100644
+index 000000000000..736aed080f8b
+--- /dev/null
++++ b/flang/include/flang/MPICallSite.h
+@@ -0,0 +1,43 @@
++#pragma once
++#include <string>
++
++struct MPICallSite {
++  std::string functionName;
++  int lineNumber;
++  std::string rawCall;
++
++  std::string bufferName;
++  int count;
++  bool isCountDynamic;
++  int argCount;
++  // executionRank:
++  //   -1  = unconditional (not inside any rank-if)
++  //   0-7 = inside IF (rank == N)
++  //   -3  = inside rank-conditioned branch but exact rank unknown (e.g. rank /=
++  //   0)
++  int executionRank = -1;
++
++  std::string datatype;
++  std::string variableType;
++
++  int actualSize;
++  int dimensions;
++  bool isAssumedShape;
++
++  bool isContiguous;
++  bool isCollective;
++  int rankConditioned;
++
++  bool hasElseCoverage = false;
++
++  int partnerRank; // arg index 3 for send/recv
++  int tag; // arg index 4
++  std::string communicator; // arg index 5
++  std::vector<std::string> derivedFieldTypes;
++
++  bool hasOptionalArgs;
++  bool isDerivedType;
++  bool isBindC;
++  int derivedFieldCount = 0;
++  bool insideDerivedDefinition = false;
++};
+\ No newline at end of file
+diff --git a/flang/include/flang/Parser/parse-tree.h b/flang/include/flang/Parser/parse-tree.h
+index a0106cac8462..b9cee2541e29 100644
+--- a/flang/include/flang/Parser/parse-tree.h
++++ b/flang/include/flang/Parser/parse-tree.h
+@@ -1394,6 +1394,7 @@ struct EntityDecl {
+ struct TypeDeclarationStmt {
+   TUPLE_CLASS_BOILERPLATE(TypeDeclarationStmt);
+   std::tuple<DeclarationTypeSpec, std::list<AttrSpec>, std::list<EntityDecl>> t;
++  std::string currentDerivedTypeName;
+ };
+ 
+ // R828 access-id -> access-name | generic-spec
+diff --git a/flang/lib/Semantics/CMakeLists.txt b/flang/lib/Semantics/CMakeLists.txt
+index 44e6dfb4dd09..3ff5ddf65b3d 100644
+--- a/flang/lib/Semantics/CMakeLists.txt
++++ b/flang/lib/Semantics/CMakeLists.txt
+@@ -35,6 +35,7 @@ add_flang_library(FortranSemantics
+   dump-expr.cpp
+   expression.cpp
+   mod-file.cpp
++  mpi-checker.cpp
+   openmp-dsa.cpp
+   openmp-modifiers.cpp
+   openmp-utils.cpp
+@@ -45,6 +46,7 @@ add_flang_library(FortranSemantics
+   resolve-names.cpp
+   resolve-names-utils.cpp
+   rewrite-parse-tree.cpp
++  rule-engine.cpp
+   runtime-type-info.cpp
+   scope.cpp
+   semantics.cpp
+diff --git a/flang/lib/Semantics/mpi-checker.cpp b/flang/lib/Semantics/mpi-checker.cpp
+new file mode 100644
+index 000000000000..3f47f9e826c6
+--- /dev/null
++++ b/flang/lib/Semantics/mpi-checker.cpp
+@@ -0,0 +1,794 @@
++#include "mpi-checker.h"
++#include "rule-engine.h"
++#include "flang/MPICallSite.h"
++#include "flang/Parser/parse-tree-visitor.h"
++#include "flang/Parser/parse-tree.h"
++#include "flang/Parser/provenance.h"
++#include "flang/Parser/unparse.h"
++#include "llvm/Support/raw_ostream.h"
++#include <algorithm>
++#include <cctype>
++#include <iostream>
++#include <unordered_map>
++#include <unordered_set>
++#include <vector>
++
++using namespace Fortran;
++
++// Track current type being declared (set by TypeDeclarationStmt)
++
++std::string MPICallVisitor::toLower(std::string s) {
++  std::transform(s.begin(), s.end(), s.begin(), ::tolower);
++  return s;
++}
++
++std::string MPICallVisitor::trim(const std::string &s) {
++  size_t start = s.find_first_not_of(" \t\n");
++  size_t end = s.find_last_not_of(" \t\n");
++  return (start == std::string::npos) ? "" : s.substr(start, end - start + 1);
++}
++
++bool MPICallVisitor::Pre(const parser::TypeDeclarationStmt &stmt) {
++  const auto &declTypeSpec = std::get<parser::DeclarationTypeSpec>(stmt.t);
++
++  // ── Derived TYPE(...) ───────────────────────────────────
++  if (const auto *typeSpec =
++          std::get_if<parser::DeclarationTypeSpec::Type>(&declTypeSpec.u)) {
++
++    this->currentDeclType = "derived";
++    // this->insideDerivedDefinition = true;
++
++    // ✅ SAFE: typeSpec is declared here
++    if (!this->insideDerivedDefinition) {
++      std::string dtype =
++          toLower(std::get<parser::Name>(typeSpec->v.t).source.ToString());
++
++      this->currentDerivedTypeName = dtype;
++    }
++
++    llvm::errs() << "DEBUG derived type name from typeSpec: '"
++                 << this->currentDerivedTypeName << "'\n";
++    // Check attributes for BIND(C)
++    const auto &attrs = std::get<std::list<parser::AttrSpec>>(stmt.t);
++
++    bool hasBindC = false;
++
++    for (const auto &attr : attrs) {
++      if (std::holds_alternative<parser::LanguageBindingSpec>(attr.u)) {
++        hasBindC = true;
++      }
++    }
++
++    if (hasBindC) {
++      this->currentDeclType = "derived_bindc";
++    }
++
++    // if (!this->currentDerivedTypeName.empty()) {
++    //   this->derivedTypeIsBindC[this->currentDerivedTypeName] = hasBindC;
++    // }
++  }
++
++  // ── CLASS(...) ──────────────────────────────────────────
++  else if (std::get_if<parser::DeclarationTypeSpec::Class>(&declTypeSpec.u)) {
++    this->currentDeclType = "derived";
++
++    // ⚠️ No reliable type name extraction here
++    this->currentDerivedTypeName = "";
++  }
++
++  // ── Intrinsic types ─────────────────────────────────────
++  else if (const auto *intrinsic =
++               std::get_if<parser::IntrinsicTypeSpec>(&declTypeSpec.u)) {
++
++    if (std::get_if<parser::IntegerTypeSpec>(&intrinsic->u)) {
++      this->currentDeclType = "integer";
++
++    } else if (std::get_if<parser::IntrinsicTypeSpec::Real>(&intrinsic->u) ||
++        std::get_if<parser::IntrinsicTypeSpec::DoublePrecision>(
++            &intrinsic->u)) {
++      this->currentDeclType = "real";
++
++    } else if (std::get_if<parser::IntrinsicTypeSpec::Complex>(&intrinsic->u)) {
++      this->currentDeclType = "complex";
++
++    } else if (std::get_if<parser::IntrinsicTypeSpec::Character>(
++                   &intrinsic->u)) {
++      this->currentDeclType = "character";
++
++    } else if (std::get_if<parser::IntrinsicTypeSpec::Logical>(&intrinsic->u)) {
++      this->currentDeclType = "logical";
++
++    } else {
++      this->currentDeclType = "unknown";
++    }
++
++    // 🔥 IMPORTANT: reset
++    this->currentDerivedTypeName = "";
++  }
++
++  // ── Fallback ────────────────────────────────────────────
++  else {
++    this->currentDeclType = "unknown";
++    this->currentDerivedTypeName = "";
++  }
++
++  return true;
++}
++
++bool MPICallVisitor::isRankCondition(const std::string &cond) {
++  // matches: rank == 0, myrank.eq.0, rank /= 1, etc.
++  return cond.find("rank") != std::string::npos ||
++      cond.find("myrank") != std::string::npos ||
++      cond.find("my_rank") != std::string::npos ||
++      cond.find("nrank") != std::string::npos;
++}
++
++void MPICallVisitor::Post(const parser::TypeDeclarationStmt &) {
++  this->currentDeclType = "unknown";
++  this->currentDerivedTypeName = ""; // 🔥 REQUIRED
++}
++
++// ── Rank-if tracking ───────────────────────────────────────────────────────
++bool MPICallVisitor::Pre(const parser::IfConstruct &ifNode) {
++  const auto &ifThenStmt =
++      std::get<parser::Statement<parser::IfThenStmt>>(ifNode.t);
++  std::string cond = this->toLower(ifThenStmt.source.ToString());
++
++  if (isRankCondition(cond)) {
++    rankContextStack.push_back(this->currentRankContext);
++    rankIfHasElse.push_back(false); // assume no else until we see one
++
++    int r = extractRank(cond);
++    if (r != -2) {
++      this->currentRankContext = r;
++    }
++    ++this->rankIfDepth;
++  }
++  return true;
++}
++
++bool MPICallVisitor::Pre(const parser::IfConstruct::ElseBlock &) {
++  // Mark that the current rank-if HAS an else block
++  if (!rankIfHasElse.empty()) {
++    rankIfHasElse.back() = true;
++  }
++  // Inside else block: set rank context to -2 (else branch sentinel)
++  // -2 means "else branch of a rank-conditioned if"
++  this->currentRankContext = -2;
++  this->insideElseBlock = true;
++  return true;
++}
++
++bool MPICallVisitor::Pre(const parser::IfConstruct::ElseIfBlock &block) {
++  const auto &stmt = std::get<parser::Statement<parser::ElseIfStmt>>(block.t);
++  std::string cond = this->toLower(stmt.source.ToString());
++
++  // ElseIf also counts as "has else" for coverage purposes
++  if (!rankIfHasElse.empty()) {
++    rankIfHasElse.back() = true;
++  }
++
++  if (isRankCondition(cond)) {
++    int r = extractRank(cond);
++    this->currentRankContext = (r != -2) ? r : -3;
++  } else {
++    this->currentRankContext = -1; // non-rank else-if = all ranks
++  }
++  return true;
++}
++
++void MPICallVisitor::Post(const parser::IfConstruct &ifNode) {
++  const auto &ifThenStmt =
++      std::get<parser::Statement<parser::IfThenStmt>>(ifNode.t);
++  std::string cond = this->toLower(ifThenStmt.source.ToString());
++
++  if (isRankCondition(cond)) {
++    // Pop the else tracking
++    if (!rankIfHasElse.empty()) {
++      rankIfHasElse.pop_back();
++    }
++    if (!rankContextStack.empty()) {
++      this->currentRankContext = rankContextStack.back();
++      rankContextStack.pop_back();
++    } else {
++      this->currentRankContext = -1;
++    }
++    --this->rankIfDepth;
++    this->insideElseBlock = false;
++  }
++}
++
++int MPICallVisitor::safeParseInt(const std::string &s) {
++  int value = 0;
++  bool started = false;
++  for (char c : s) {
++    if (isspace(c)) {
++      continue;
++    }
++    if (!isdigit(c)) {
++      return -1;
++    }
++    started = true;
++    value = value * 10 + (c - '0');
++  }
++  return started ? value : -1;
++}
++
++// ── MPI call extraction ────────────────────────────────────────────────────
++void MPICallVisitor::Post(const parser::CallStmt &call) {
++
++  MPICallSite site;
++
++  // A. INITIALIZE ALL FIELDS
++  site.functionName = "";
++  // E. LINE NUMBER via provenance
++  if (this->allCooked) {
++    parser::CharBlock src = call.source;
++    if (auto range = this->allCooked->GetSourcePositionRange(src)) {
++      site.lineNumber = static_cast<int>(range->first.line);
++    }
++  }
++
++  site.rawCall = "";
++
++  site.bufferName = "";
++  site.count = -1;
++  site.isCountDynamic = false;
++
++  site.datatype = "";
++  site.variableType = "unknown";
++
++  site.actualSize = -1;
++  site.dimensions = -1;
++  site.isAssumedShape = false;
++
++  site.isContiguous = true;
++  site.isCollective = false;
++
++  site.partnerRank = -1;
++  site.tag = -1;
++  site.communicator = "";
++
++  site.hasOptionalArgs = false;
++  site.isDerivedType = false;
++  site.isBindC = false;
++
++  const parser::Call &callInfo = std::get<parser::Call>(call.t);
++  const parser::ProcedureDesignator &proc =
++      std::get<parser::ProcedureDesignator>(callInfo.t);
++
++  // B. FUNCTION NAME
++  if (const auto *name = std::get_if<parser::Name>(&proc.u)) {
++    site.functionName = this->toLower(name->source.ToString());
++  }
++
++  // Skip non-MPI calls early
++  if (site.functionName.rfind("mpi_", 0) != 0) {
++    return;
++  }
++  static const std::unordered_set<std::string> noBufferCalls = {"mpi_init",
++      "mpi_finalize", "mpi_comm_rank", "mpi_comm_size", "mpi_comm_dup",
++      "mpi_comm_split", "mpi_comm_free", "mpi_type_commit", "mpi_type_free",
++      "mpi_wtime", "mpi_wtick"};
++  if (noBufferCalls.count(site.functionName)) {
++    this->calls.push_back(site); // optional: keep for completeness
++    return;
++  }
++
++  // F. RAW CALL
++
++  site.rawCall = call.source.ToString();
++  // C. ARGUMENT PARSING
++  const auto &args = std::get<std::list<parser::ActualArgSpec>>(callInfo.t);
++
++  int index = 0;
++  for (const auto &arg : args) {
++    const auto &actualArg = std::get<parser::ActualArg>(arg.t);
++
++    if (const auto *exprInd =
++            std::get_if<common::Indirection<parser::Expr>>(&actualArg.u)) {
++
++      const parser::Expr &realExpr = exprInd->value();
++      std::string cleaned = this->trim(realExpr.source.ToString());
++
++      if (index == 0) {
++        site.bufferName = cleaned;
++        if (site.bufferName.find(":") != std::string::npos)
++          site.isContiguous = false;
++        // For barrier, index 0 is the communicator, not a buffer
++        if (site.functionName == "mpi_barrier")
++          site.communicator = this->toLower(cleaned);
++
++      } else if (index == 1) {
++        if (site.functionName != "mpi_barrier") {
++          int val = this->safeParseInt(cleaned);
++          if (val == -1) {
++            site.isCountDynamic = true;
++            site.count = -1;
++          } else {
++            site.count = val;
++          }
++        }
++
++      } else if (index == 2) {
++        if (site.functionName != "mpi_barrier") {
++          site.datatype = this->toLower(cleaned);
++          // if (site.datatype.find("mpi_real") == std::string::npos &&
++          //     site.datatype.find("mpi_integer") == std::string::npos &&
++          //     site.datatype.find("mpi_double") == std::string::npos &&
++          //     site.datatype.find("mpi_complex") == std::string::npos &&
++          //     site.datatype.find("mpi_character") == std::string::npos &&
++          //     site.datatype.find("mpi_logical") == std::string::npos &&
++          //     site.datatype.find("mpi_byte") == std::string::npos &&
++          //     site.datatype.find("mpi_packed") == std::string::npos) {
++          //   site.isDerivedType = true;
++          // }
++        }
++
++      } else if (index == 3) {
++        if (site.functionName != "mpi_barrier") {
++          int val = this->safeParseInt(cleaned);
++          site.partnerRank = val;
++        }
++      } else if (index == 4) {
++        // bcast/scatter/gather/reduce: index 4 = communicator (after root at
++        // index 3)
++        if (site.functionName == "mpi_bcast" ||
++            site.functionName == "mpi_scatter" ||
++            site.functionName == "mpi_gather" ||
++            site.functionName == "mpi_reduce" ||
++            site.functionName == "mpi_allreduce" ||
++            site.functionName == "mpi_allgather" ||
++            site.functionName == "mpi_alltoall") {
++          site.communicator = this->toLower(cleaned);
++        } else {
++          // p2p: index 4 = tag
++          int val = this->safeParseInt(cleaned);
++          site.tag = val;
++        }
++
++      } else if (index == 5) {
++        // p2p only: index 5 = communicator
++        if (site.functionName == "mpi_send" ||
++            site.functionName == "mpi_recv" ||
++            site.functionName == "mpi_isend" ||
++            site.functionName == "mpi_irecv") {
++          site.communicator = this->toLower(cleaned);
++        }
++      }
++    }
++
++    index++;
++  }
++  site.argCount = index;
++
++  // hasOptionalArgs: MPI routines with > 6 args typically have
++  // optional/status
++  // OPTIONAL ARG DETECTION (corrected)
++
++  site.hasOptionalArgs = false; // default
++
++  if (site.functionName == "mpi_recv" || site.functionName == "mpi_irecv") {
++
++    // MPI_Recv can have optional status argument
++    if (site.argCount >= 7) {
++      site.hasOptionalArgs = true;
++    }
++
++  } else if (site.functionName == "mpi_send" ||
++      site.functionName == "mpi_isend") {
++
++    // Send should NOT have extra args
++    if (site.argCount > 6) {
++      site.hasOptionalArgs = true; // misuse
++    }
++  }
++
++  // E. LINE NUMBER — use source CharBlock
++  // requires AllSources context; set externally if needed
++
++  // G. SYMBOL TABLE LOOKUP
++  std::string lookupName = site.bufferName;
++
++  // remove indexing: a(1:5) → a
++  size_t pos = lookupName.find("(");
++  if (pos != std::string::npos) {
++    lookupName = lookupName.substr(0, pos);
++  }
++
++  // normalize
++  lookupName.erase(std::remove_if(lookupName.begin(), lookupName.end(),
++                       [](char c) { return std::isspace(c) || c == ','; }),
++      lookupName.end());
++  lookupName = this->toLower(this->trim(lookupName));
++
++  /* ---------------- DERIVED TYPE ---------------- */
++  if (this->variableToDerivedType.count(lookupName)) {
++
++    std::string dtype = this->variableToDerivedType[lookupName];
++
++    site.isDerivedType = true;
++    site.variableType = "derived";
++
++    if (this->derivedTypeFieldCount.count(dtype)) {
++      site.derivedFieldCount = this->derivedTypeFieldCount[dtype];
++    }
++
++    if (this->derivedTypeFieldTypes.count(dtype)) {
++      site.derivedFieldTypes = this->derivedTypeFieldTypes[dtype];
++    }
++
++    if (this->derivedTypeIsBindC.count(dtype)) {
++      site.isBindC = this->derivedTypeIsBindC[dtype];
++    }
++  }
++
++  /* ---------------- INTRINSIC TYPE ---------------- */
++  else if (this->variableTypes.count(lookupName)) {
++    site.variableType = this->variableTypes[lookupName];
++  }
++
++  /* ---------------- ARRAY INFO ---------------- */
++  if (this->arraySizes.count(lookupName)) {
++    site.actualSize = this->arraySizes[lookupName];
++    site.dimensions = this->dimensions[lookupName];
++    site.isAssumedShape = this->assumedShape[lookupName];
++  }
++  // if (this->variableTypes.count(lookupName)) {
++  //   site.variableType = this->variableTypes[lookupName];
++
++  //   if (site.variableType == "derived") {
++  //     site.isDerivedType = true;
++  //   }
++
++  //   if (this->variableToDerivedType.count(lookupName)) {
++  //     std::string dtype = this->variableToDerivedType[lookupName];
++
++  //     if (this->derivedTypeFieldTypes.count(dtype)) {
++  //       site.derivedFieldTypes = this->derivedTypeFieldTypes[dtype];
++  //     }
++  //   }
++
++  //   if (this->variableTypes[lookupName] == "derived_bindc") {
++  //     site.isDerivedType = true;
++  //     site.isBindC = true;
++  //   }
++  // }
++
++  // intrinsic types
++  // if (this->variableTypes.count(lookupName)) {
++  //   site.variableType = this->variableTypes[lookupName];
++  // }
++
++  // 🔥 derived handled separately
++  // if (this->variableToDerivedType.count(lookupName)) {
++  //   std::string dtype = this->variableToDerivedType[lookupName];
++
++  //   site.isDerivedType = true;
++
++  //   // ✅ Field types
++  //   if (this->derivedTypeFieldTypes.count(dtype)) {
++  //     site.derivedFieldTypes = this->derivedTypeFieldTypes[dtype];
++  //   }
++
++  //   // ✅ Field count
++  //   if (this->derivedTypeFieldCount.count(dtype)) {
++  //     site.derivedFieldCount = this->derivedTypeFieldCount[dtype];
++  //   }
++
++  //   // ✅ BIND(C) — CORRECT way
++  //   if (this->derivedTypeIsBindC.count(dtype)) {
++  //     site.isBindC = this->derivedTypeIsBindC[dtype];
++  //   }
++  // }
++
++  // H. COLLECTIVE DETECTION
++  if (site.functionName == "mpi_bcast" || site.functionName == "mpi_reduce" ||
++      site.functionName == "mpi_allreduce" ||
++      site.functionName == "mpi_barrier" ||
++      site.functionName == "mpi_scatter" || site.functionName == "mpi_gather" ||
++      site.functionName == "mpi_allgather" ||
++      site.functionName == "mpi_alltoall") {
++    site.isCollective = true;
++  }
++
++  // I. RANK CONDITION
++  site.executionRank = this->currentRankContext;
++  site.hasElseCoverage =
++      this->insideElseBlock || (!rankIfHasElse.empty() && rankIfHasElse.back());
++
++  this->calls.push_back(site);
++}
++
++// ── Variable declaration extraction ───────────────────────────────────────
++void MPICallVisitor::Post(const parser::EntityDecl &decl) {
++  const auto &objName = std::get<parser::ObjectName>(decl.t);
++  std::string name = this->toLower(this->trim(objName.source.ToString()));
++
++  llvm::errs() << "DEBUG EntityDecl: name='" << name << "' currentDeclType='"
++               << this->currentDeclType << "' currentDerivedTypeName='"
++               << this->currentDerivedTypeName << "'\n";
++
++  // Defaults
++  this->dimensions[name] = 1;
++  this->arraySizes[name] = -1;
++  this->assumedShape[name] = false;
++  // this->variableTypes[name] =
++  //     this->currentDeclType;
++  // 🔥 Separate intrinsic vs derived types
++
++  if (this->insideDerivedDefinition) {
++    // We're inside a TYPE definition block — this is a field declaration
++    if (!this->currentDerivedTypeName.empty()) {
++      this->variableToDerivedType[name] = this->currentDerivedTypeName;
++    }
++  } else {
++    // We're in normal code — this is a variable declaration
++    this->variableTypes[name] = this->currentDeclType;
++
++    // 🔥 FIX: if it's a derived type variable, also record WHICH type it is
++    if ((this->currentDeclType == "derived" ||
++            this->currentDeclType == "derived_bindc") &&
++        !this->currentDerivedTypeName.empty()) {
++      this->variableToDerivedType[name] = this->currentDerivedTypeName;
++    }
++  }
++
++  // 🔥 Count fields inside derived type definition
++  // if (!this->currentDerivedTypeName.empty()) {
++
++  //   if (this->currentDeclType == "real" || this->currentDeclType == "integer"
++  //   ||
++  //       this->currentDeclType == "complex" ||
++  //       this->currentDeclType == "character" ||
++  //       this->currentDeclType == "logical") {
++
++  //     this->derivedTypeFieldCount[this->currentDerivedTypeName]++;
++  //     this->derivedTypeFieldTypes[this->currentDerivedTypeName].push_back(
++  //         this->currentDeclType);
++  //   }
++  // }
++
++  const auto &maybeArraySpec =
++      std::get<std::optional<parser::ArraySpec>>(decl.t);
++  if (maybeArraySpec) {
++    const parser::ArraySpec &spec = *maybeArraySpec;
++
++    if (const auto *explicitList =
++            std::get_if<std::list<parser::ExplicitShapeSpec>>(&spec.u)) {
++      this->dimensions[name] = static_cast<int>(explicitList->size());
++      this->assumedShape[name] = false;
++
++      if (explicitList->size() == 1) {
++        const parser::ExplicitShapeSpec &ess = explicitList->front();
++        const parser::SpecificationExpr &upper =
++            std::get<parser::SpecificationExpr>(ess.t);
++        const parser::Expr &expr = upper.v.thing.thing.value();
++        std::string upperStr = this->trim(expr.source.ToString());
++
++        // 🔥 ADD THIS
++        if (upperStr.find("n") != std::string::npos ||
++            upperStr.find("N") != std::string::npos) {
++          this->arraySizes[name] = -1; // runtime-sized array
++        } else {
++          this->arraySizes[name] = this->safeParseInt(upperStr);
++        }
++      } else {
++        this->arraySizes[name] = -1;
++      }
++
++    } else if (std::get_if<std::list<parser::AssumedShapeSpec>>(&spec.u)) {
++      this->assumedShape[name] = true;
++      this->arraySizes[name] = -1;
++      const auto &asList =
++          std::get<std::list<parser::AssumedShapeSpec>>(spec.u);
++      this->dimensions[name] = static_cast<int>(asList.size());
++
++    } else if (std::get_if<parser::AssumedSizeSpec>(&spec.u)) {
++      this->assumedShape[name] = true;
++      this->arraySizes[name] = -1;
++      this->dimensions[name] = 1;
++    }
++  }
++}
++
++bool MPICallVisitor::Pre(const Fortran::parser::DerivedTypeDef &def) {
++  llvm::errs() << "DEBUG DerivedTypeDef Pre ENTRY\n";
++  const auto &stmt =
++      std::get<parser::Statement<parser::DerivedTypeStmt>>(def.t);
++
++  const auto &derivedStmt = stmt.statement;
++
++  // 🔥 SAFE: Name is ALWAYS the first element in this node
++  const auto &name = std::get<parser::Name>(derivedStmt.t);
++
++  this->currentDerivedTypeName = toLower(name.source.ToString());
++  this->insideDerivedDefinition = true;
++
++  // Initialize bind(C)
++  this->derivedTypeIsBindC[this->currentDerivedTypeName] = false;
++
++  // Attributes
++  const auto &attrs = std::get<std::list<parser::TypeAttrSpec>>(derivedStmt.t);
++
++  for (const auto &attr : attrs) {
++    if (std::holds_alternative<parser::TypeAttrSpec::BindC>(attr.u)) {
++      this->derivedTypeIsBindC[this->currentDerivedTypeName] = true;
++      break;
++    }
++  }
++
++  llvm::errs() << "DEBUG DerivedTypeDef Pre: name='"
++               << this->currentDerivedTypeName << "' bindC="
++               << this->derivedTypeIsBindC[this->currentDerivedTypeName]
++               << "\n";
++
++  const auto &components =
++      std::get<std::list<parser::Statement<parser::ComponentDefStmt>>>(def.t);
++
++  for (const auto &compStmt : components) {
++
++    const auto &compDef = compStmt.statement;
++
++    if (const auto *dataComp =
++            std::get_if<parser::DataComponentDefStmt>(&compDef.u)) {
++
++      const auto &typeSpec = std::get<parser::DeclarationTypeSpec>(dataComp->t);
++
++      std::string fieldType = "unknown";
++      if (const auto *intr =
++              std::get_if<parser::IntrinsicTypeSpec>(&typeSpec.u)) {
++        if (std::get_if<parser::IntegerTypeSpec>(&intr->u))
++          fieldType = "integer";
++        else if (std::get_if<parser::IntrinsicTypeSpec::Real>(&intr->u) ||
++            std::get_if<parser::IntrinsicTypeSpec::DoublePrecision>(&intr->u))
++          fieldType = "real";
++        else if (std::get_if<parser::IntrinsicTypeSpec::Complex>(&intr->u))
++          fieldType = "complex";
++        else if (std::get_if<parser::IntrinsicTypeSpec::Character>(&intr->u))
++          fieldType = "character";
++        else if (std::get_if<parser::IntrinsicTypeSpec::Logical>(&intr->u))
++          fieldType = "logical";
++      }
++
++      if (fieldType != "unknown") {
++        // Count each declared component in this statement
++        const auto &compList =
++            std::get<std::list<parser::ComponentOrFill>>(dataComp->t);
++        for (const auto &comp : compList) {
++          // Only count real component declarations, not fill (padding) entries
++          if (std::get_if<parser::ComponentDecl>(&comp.u)) {
++            this->derivedTypeFieldCount[this->currentDerivedTypeName]++;
++            this->derivedTypeFieldTypes[this->currentDerivedTypeName].push_back(
++                fieldType);
++          }
++        }
++        // for (size_t i = 0; i < compList.size(); i++) {
++        //   this->derivedTypeFieldCount[this->currentDerivedTypeName]++;
++        //   this->derivedTypeFieldTypes[this->currentDerivedTypeName].push_back(
++        //       fieldType);
++        // }
++      }
++    }
++  }
++
++  // this->insideDerivedDefinition = true;
++  return true;
++}
++
++void MPICallVisitor::Post(const parser::DerivedTypeDef &) {
++  this->insideDerivedDefinition = false;
++  this->currentDerivedTypeName = "";
++}
++
++// ── JSON output ───────────────────────────────────────────────────────────
++void MPICallVisitor::PrintJSON() {
++  std::cout << "[\n";
++  for (size_t i = 0; i < calls.size(); i++) {
++    const auto &c = this->calls[i];
++
++    std::cout << "  {\n";
++    std::cout << "    \"functionName\": \"" << c.functionName << "\",\n";
++    std::cout << "    \"lineNumber\": " << c.lineNumber << ",\n";
++    std::cout << "    \"rawCall\": \"" << c.rawCall << "\",\n";
++    std::cout << "    \"bufferName\": \"" << c.bufferName << "\",\n";
++    std::cout << "    \"count\": " << c.count << ",\n";
++    std::cout << "    \"isCountDynamic\": "
++              << (c.isCountDynamic ? "true" : "false") << ",\n";
++    std::cout << "    \"datatype\": \"" << c.datatype << "\",\n";
++    std::cout << "    \"variableType\": \"" << c.variableType << "\",\n";
++    std::cout << "    \"actualSize\": " << c.actualSize << ",\n";
++    std::cout << "    \"dimensions\": " << c.dimensions << ",\n";
++    std::cout << "    \"isAssumedShape\": "
++              << (c.isAssumedShape ? "true" : "false") << ",\n";
++    std::cout << "    \"isContiguous\": " << (c.isContiguous ? "true" : "false")
++              << ",\n";
++    std::cout << "    \"isCollective\": " << (c.isCollective ? "true" : "false")
++              << ",\n";
++    // std::cout << "    \"rankConditioned\": " << c.rankConditioned << ",\n";
++    std::cout << "    \"partnerRank\": " << c.partnerRank << ",\n";
++    std::cout << "    \"tag\": " << c.tag << ",\n";
++    std::cout << "    \"communicator\": \"" << c.communicator << "\",\n";
++    std::cout << "    \"hasOptionalArgs\": "
++              << (c.hasOptionalArgs ? "true" : "false") << ",\n";
++    std::cout << "    \"isDerivedType\": "
++              << (c.isDerivedType ? "true" : "false") << ",\n";
++    std::cout << "    \"derivedFieldCount\": " << c.derivedFieldCount << ",\n";
++    std::cout << "    \"isBindC\": " << (c.isBindC ? "true" : "false") << "\n";
++    std::cout << "  }";
++    if (i != this->calls.size() - 1) {
++      std::cout << ",";
++    }
++    std::cout << "\n";
++  }
++  std::cout << "]\n";
++}
++
++int MPICallVisitor::extractRank(const std::string &cond) {
++  for (int i = 0; i < 8; i++) { // support ranks 0–7 (enough)
++    std::string val = std::to_string(i);
++
++    if (cond.find("== " + val) != std::string::npos ||
++        cond.find(".eq." + val) != std::string::npos) {
++      return i;
++    }
++  }
++
++  // Negation / inequality: rank /= N, rank .ne. N, rank > N, rank < N
++  // We can't determine the exact rank, but it IS rank-conditioned.
++  // Return -3 as sentinel: "rank-conditioned, specific rank unknown"
++  if (cond.find("/=") != std::string::npos ||
++      cond.find(".ne.") != std::string::npos ||
++      cond.find(">") != std::string::npos ||
++      cond.find("<") != std::string::npos) {
++    return -3;
++  }
++  return -2;
++}
++
++std::string MPICallVisitor::extractFullCall(int lineNumber) {
++  if (!fileLines || lineNumber <= 0 ||
++      lineNumber > static_cast<int>(fileLines->size())) {
++    return "";
++  }
++
++  std::string result;
++  int openParens = 0;
++  bool started = false;
++
++  for (int i = lineNumber - 1; i < static_cast<int>(fileLines->size()); i++) {
++    std::string line = (*fileLines)[i];
++
++    // 🔹 REMOVE continuation '&'
++    line.erase(std::remove(line.begin(), line.end(), '&'), line.end());
++
++    // 🔹 TRIM each line
++    line = this->trim(line);
++
++    // 🔹 APPEND
++    if (!result.empty()) {
++      result += " ";
++    }
++    result += line;
++
++    // 🔹 TRACK parentheses
++    for (char c : line) {
++      if (c == '(') {
++        openParens++;
++        started = true;
++      } else if (c == ')') {
++        openParens--;
++      }
++    }
++
++    // 🔹 STOP when balanced
++    if (started && openParens == 0) {
++      break;
++    }
++  }
++
++  // 🔹 FINAL CLEANUP (WHOLE STRING)
++  result = this->trim(result);
++
++  return result;
++}
+diff --git a/flang/lib/Semantics/mpi-checker.h b/flang/lib/Semantics/mpi-checker.h
+new file mode 100644
+index 000000000000..a31a3c6cccf3
+--- /dev/null
++++ b/flang/lib/Semantics/mpi-checker.h
+@@ -0,0 +1,80 @@
++#pragma once
++
++#include "flang/MPICallSite.h"
++// #include "flang/Parser/parse-tree-visitor.h"
++#include "flang/Parser/parse-tree.h"
++#include "flang/Parser/provenance.h"
++#include <string>
++#include <unordered_map>
++#include <vector>
++
++namespace Fortran {
++namespace parser {
++class AllCookedSources;
++} // namespace parser
++} // namespace Fortran
++
++struct MPICallVisitor {
++
++  const Fortran::parser::AllCookedSources *allCooked{nullptr};
++  const std::vector<std::string> *fileLines{nullptr};
++
++  std::unordered_map<std::string, int> derivedFieldCount;
++
++  Fortran::parser::Provenance firstProv;
++  bool hasProv = false;
++
++  std::unordered_map<std::string, int> arraySizes;
++  std::unordered_map<std::string, std::string> variableTypes;
++  std::unordered_map<std::string, int> dimensions;
++  std::unordered_map<std::string, bool> assumedShape;
++
++  std::string currentDeclType = "unknown";
++  int rankIfDepth = 0;
++  // int argCount;
++  // int executionRank;
++  std::vector<int> rankContextStack;
++  int currentRankContext = -1;
++
++  std::vector<MPICallSite> calls;
++  std::string currentDerivedTypeName;
++  std::unordered_map<std::string, int> derivedTypeFieldCount;
++  std::unordered_map<std::string, std::string> variableToDerivedType;
++  bool insideDerivedDefinition = false;
++
++  std::unordered_map<std::string, std::vector<std::string>>
++      derivedTypeFieldTypes;
++  // Function declarations only (definitions in .cpp)
++  std::string toLower(std::string s);
++  std::string trim(const std::string &s);
++  int safeParseInt(const std::string &s);
++  std::string extractFullCall(int lineNumber);
++  int extractRank(const std::string &s);
++  std::unordered_map<std::string, bool> derivedTypeIsBindC;
++
++  std::vector<bool> rankIfHasElse; // parallel to rankContextStack
++  bool insideElseBlock = false;
++
++  bool isRankCondition(const std::string &cond);
++
++  template <typename T> bool Pre(const T &) { return true; }
++
++  template <typename T> void Post(const T &) {}
++
++  bool Pre(const Fortran::parser::IfConstruct::ElseIfBlock &);
++  bool Pre(const Fortran::parser::IfConstruct::ElseBlock &);
++
++  bool Pre(const Fortran::parser::TypeDeclarationStmt &stmt);
++  void Post(const Fortran::parser::TypeDeclarationStmt &);
++
++  bool Pre(const Fortran::parser::DerivedTypeDef &);
++  void Post(const Fortran::parser::DerivedTypeDef &);
++
++  bool Pre(const Fortran::parser::IfConstruct &ifNode);
++  void Post(const Fortran::parser::IfConstruct &ifNode);
++
++  void Post(const Fortran::parser::CallStmt &call);
++  void Post(const Fortran::parser::EntityDecl &decl);
++
++  void PrintJSON();
++};
+\ No newline at end of file
+diff --git a/flang/lib/Semantics/rewrite-parse-tree.h b/flang/lib/Semantics/rewrite-parse-tree.h
+index 313276db481d..96af45062650 100644
+--- a/flang/lib/Semantics/rewrite-parse-tree.h
++++ b/flang/lib/Semantics/rewrite-parse-tree.h
+@@ -15,10 +15,10 @@ struct Program;
+ } // namespace Fortran::parser
+ namespace Fortran::semantics {
+ class SemanticsContext;
+-}
++} // namespace Fortran::semantics
+ 
+ namespace Fortran::semantics {
+ bool RewriteParseTree(SemanticsContext &, parser::Program &);
+-}
++} // namespace Fortran::semantics
+ 
+ #endif // FORTRAN_SEMANTICS_REWRITE_PARSE_TREE_H_
+diff --git a/flang/lib/Semantics/rule-engine.cpp b/flang/lib/Semantics/rule-engine.cpp
+new file mode 100644
+index 000000000000..efa7a1af277e
+--- /dev/null
++++ b/flang/lib/Semantics/rule-engine.cpp
+@@ -0,0 +1,384 @@
++#include "rule-engine.h"
++#include "llvm/Support/raw_ostream.h"
++#include <map>
++#include <tuple>
++
++// ─────────────────────────────────────────────────────────────
++// Main entry
++// ─────────────────────────────────────────────────────────────
++std::vector<MPIError> RuleEngine::analyze(
++    const std::vector<MPICallSite> &calls) {
++
++  std::vector<MPIError> errors;
++
++  // ── Per-call rules ───────────────────────────
++  for (const auto &call : calls) {
++    checkBufferOverflow(call, errors);
++    checkContiguity(call, errors);
++    checkDatatypeMismatch(call, errors);
++    // checkCollectiveMisuse(call, errors);
++    checkOptionalArgs(call, errors);
++    checkDerivedType(call, errors);
++    checkDerivedLayout(call, errors); // ✅ fixed
++  }
++
++  // ── Cross-call / global rules ───────────────
++  checkSendRecvMismatch(calls, errors);
++  checkCollectiveReachability(calls, errors);
++  checkCollectiveOrdering(calls, errors);
++
++  return errors;
++}
++// ─────────────────────────────────────────────────────────────
++// RULE 1: Buffer overflow
++// ─────────────────────────────────────────────────────────────
++void RuleEngine::checkBufferOverflow(
++    const MPICallSite &call, std::vector<MPIError> &errors) {
++
++  if (!call.isCountDynamic && call.actualSize != -1) {
++    if (call.count > call.actualSize) {
++      errors.push_back(
++          {"BufferOverflow", "Count exceeds buffer size", call.lineNumber});
++    }
++  }
++}
++
++// ─────────────────────────────────────────────────────────────
++// RULE 2: Non-contiguous buffer
++// ─────────────────────────────────────────────────────────────
++void RuleEngine::checkContiguity(
++    const MPICallSite &call, std::vector<MPIError> &errors) {
++
++  if (!call.isContiguous) {
++    errors.push_back({"NonContiguous", "Non-contiguous array passed to MPI",
++        call.lineNumber});
++  }
++}
++
++// ─────────────────────────────────────────────────────────────
++// RULE 3: Datatype mismatch
++// ─────────────────────────────────────────────────────────────
++void RuleEngine::checkDatatypeMismatch(
++    const MPICallSite &call, std::vector<MPIError> &errors) {
++
++  if (call.datatype.empty()) {
++    return;
++  }
++
++  if (call.variableType == "real" &&
++      call.datatype.find("mpi_real") == std::string::npos &&
++      call.datatype.find("mpi_double_precision") == std::string::npos) {
++
++    errors.push_back({"DatatypeMismatch",
++        "REAL variable used with incompatible MPI datatype", call.lineNumber});
++  }
++
++  if (call.variableType == "integer" &&
++      call.datatype.find("mpi_integer") == std::string::npos) {
++
++    errors.push_back({"DatatypeMismatch",
++        "INTEGER variable used with incompatible MPI datatype",
++        call.lineNumber});
++  }
++
++  if (call.variableType == "complex" &&
++      call.datatype.find("mpi_complex") == std::string::npos) {
++    errors.push_back({"DatatypeMismatch",
++        "COMPLEX variable used with incompatible MPI datatype",
++        call.lineNumber});
++  }
++  if (call.variableType == "logical" &&
++      call.datatype.find("mpi_logical") == std::string::npos) {
++    errors.push_back({"DatatypeMismatch",
++        "LOGICAL variable used with incompatible MPI datatype",
++        call.lineNumber});
++  }
++}
++
++// ─────────────────────────────────────────────────────────────
++// RULE 4: Collective misuse
++// ─────────────────────────────────────────────────────────────
++
++// void RuleEngine::checkCollectiveMisuse(
++//     const MPICallSite &call, std::vector<MPIError> &errors) {
++
++//   if (call.isCollective && call.executionRank != -1) {
++//     errors.push_back({"CollectiveMismatch",
++//         "Collective call inside rank-dependent condition", call.lineNumber});
++//   }
++// }
++
++// ─────────────────────────────────────────────────────────────
++// RULE 5: Optional arguments warning
++// ─────────────────────────────────────────────────────────────
++void RuleEngine::checkOptionalArgs(
++    const MPICallSite &call, std::vector<MPIError> &errors) {
++
++  // MPI_Recv expects at least 7 args (status optional but important)
++  if (call.functionName == "mpi_recv") {
++
++    if (call.argCount < 6) {
++      errors.push_back({"OptionalArgs", "MPI_Recv missing required arguments",
++          call.lineNumber});
++    }
++
++    if (call.argCount == 6) {
++      errors.push_back({"OptionalArgs",
++          "MPI_Recv missing status argument (optional but recommended)",
++          call.lineNumber});
++    }
++  }
++
++  // MPI_Send should NOT have extra args
++  if (call.functionName == "mpi_send" && call.argCount > 6) {
++    errors.push_back({"OptionalArgs", "MPI_Send has unexpected extra arguments",
++        call.lineNumber});
++  }
++}
++
++// ─────────────────────────────────────────────────────────────
++// RULE 6: Derived type warning
++// ─────────────────────────────────────────────────────────────
++void RuleEngine::checkDerivedType(
++    const MPICallSite &call, std::vector<MPIError> &errors) {
++
++  if (call.isDerivedType && !call.isBindC) {
++    errors.push_back({"DerivedType",
++        "Derived type without BIND(C) may be incompatible with MPI",
++        call.lineNumber});
++  }
++}
++
++// ─────────────────────────────────────────────────────────────
++// RULE 7: Send/Recv mismatch (cross-call)
++// ─────────────────────────────────────────────────────────────
++void RuleEngine::checkSendRecvMismatch(
++    const std::vector<MPICallSite> &calls, std::vector<MPIError> &errors) {
++
++  struct Msg {
++    MPICallSite call;
++    bool isSend;
++  };
++
++  using Key = std::tuple<int, std::string>;
++  std::map<Key, std::vector<Msg>> groups;
++
++  for (const auto &call : calls) {
++    if (call.tag == -1) { // partnerRank check removed — tag+comm is sufficient
++      continue;
++    }
++
++    bool isSend = call.functionName.find("send") != std::string::npos;
++    bool isRecv = call.functionName.find("recv") != std::string::npos;
++
++    if (!isSend && !isRecv) {
++      continue;
++    }
++
++    // Key key = {call.partnerRank, call.tag, call.communicator};
++    // groups[key].push_back({call, isSend});
++
++    Key key = {call.tag, call.communicator};
++    groups[key].push_back({call, isSend});
++  }
++
++  // for (const auto &[key, group] : groups) {
++
++  //   MPICallSite sendCall, recvCall;
++  //   bool hasSend = false, hasRecv = false;
++
++  //   for (const auto &msg : group) {
++  //     if (msg.isSend) {
++  //       sendCall = msg.call;
++  //       hasSend = true;
++  //     } else {
++  //       recvCall = msg.call;
++  //       hasRecv = true;
++  //     }
++  //   }
++
++  //   if (!hasSend || !hasRecv) {
++  //     errors.push_back({"SendRecvMismatch", "Missing matching send/recv
++  //     pair",
++  //         group[0].call.lineNumber});
++  //     continue;
++  //   }
++
++  //   // Count mismatch
++  //   if (sendCall.count != -1 && recvCall.count != -1 &&
++  //       sendCall.count != recvCall.count) {
++  //     errors.push_back({"SendRecvMismatch",
++  //         "Mismatch between send and receive counts", sendCall.lineNumber});
++  //   }
++
++  //   // Datatype mismatch
++  //   if (sendCall.datatype != recvCall.datatype) {
++  //     errors.push_back({"SendRecvMismatch",
++  //         "Mismatch between send and receive datatypes",
++  //         sendCall.lineNumber});
++  //   }
++  // }
++
++  for (const auto &[key, group] : groups) {
++    std::vector<MPICallSite> sends, recvs;
++    for (const auto &msg : group) {
++      if (msg.isSend)
++        sends.push_back(msg.call);
++      else
++        recvs.push_back(msg.call);
++    }
++
++    // Ambiguous — multiple sends or recvs on same tag+comm, can't pair
++    // statically
++    if (sends.size() > 1 || recvs.size() > 1)
++      continue;
++
++    if (sends.empty() || recvs.empty()) {
++      errors.push_back({"SendRecvMismatch", "Missing matching send/recv pair",
++          group[0].call.lineNumber});
++      continue;
++    }
++
++    const auto &sendCall = sends[0];
++    const auto &recvCall = recvs[0];
++
++    if (sendCall.count != -1 && recvCall.count != -1 &&
++        sendCall.count != recvCall.count) {
++      errors.push_back({"SendRecvMismatch",
++          "Mismatch between send and receive counts", sendCall.lineNumber});
++    }
++    if (sendCall.datatype != recvCall.datatype) {
++      errors.push_back({"SendRecvMismatch",
++          "Mismatch between send and receive datatypes", sendCall.lineNumber});
++    }
++  }
++}
++
++void RuleEngine::checkCollectiveReachability(
++    const std::vector<MPICallSite> &calls, std::vector<MPIError> &errors) {
++
++  for (const auto &call : calls) {
++    if (!call.isCollective)
++      continue;
++
++    // executionRank == -1 means unconditional = safe
++    if (call.executionRank == -1)
++      continue;
++
++    // If inside an if/else construct, checkCollectiveOrdering
++    // handles correctness — reachability is not violated
++    if (call.hasElseCoverage)
++      continue;
++
++    // 🔥 Only flag one-sided rank conditions (no else branch)
++    errors.push_back({"CollectiveMismatch",
++        "Collective call may not be executed by all ranks", call.lineNumber});
++  }
++}
++
++void RuleEngine::checkCollectiveOrdering(
++    const std::vector<MPICallSite> &calls, std::vector<MPIError> &errors) {
++
++  // rank → [(functionName, lineNumber)]
++  std::map<int, std::vector<std::pair<std::string, int>>> sequences;
++
++  for (const auto &call : calls) {
++    if (!call.isCollective)
++      continue;
++
++    if (call.executionRank == 0) { // only flag rank==0 as likely one-sided
++      errors.push_back({"CollectiveMismatch",
++          "Collective call may not be executed by all ranks", call.lineNumber});
++    }
++
++    int rank =
++        call.executionRank; // -1 = all ranks, >=0 = specific, -3 = sentinel
++    sequences[rank].push_back({call.functionName, call.lineNumber});
++  }
++
++  if (sequences.size() < 2)
++    return;
++
++  // 🔥 FIX: choose correct reference sequence
++  auto refIt = sequences.find(-1); // prefer unconditional
++
++  if (refIt == sequences.end()) {
++    refIt = sequences.begin(); // fallback
++  }
++
++  const auto &[refRank, base] = *refIt;
++
++  // Compare all sequences
++  for (const auto &[rank, seq] : sequences) {
++
++    // Skip reference and sentinel
++    if (rank == refRank || rank == -3)
++      continue;
++
++    // Compare sequence order
++    for (size_t i = 0; i < std::min(seq.size(), base.size()); i++) {
++      if (seq[i].first != base[i].first) {
++        errors.push_back({"CollectiveOrdering",
++            "Rank " + std::to_string(rank) + " calls " + seq[i].first +
++                " but rank " + std::to_string(refRank) + " calls " +
++                base[i].first,
++            seq[i].second});
++        break;
++      }
++    }
++
++    // Compare lengths
++    if (seq.size() != base.size()) {
++      errors.push_back({"CollectiveOrdering",
++          "Rank " + std::to_string(rank) + " has " +
++              std::to_string(seq.size()) + " collective(s) but rank " +
++              std::to_string(refRank) + " has " + std::to_string(base.size()),
++          seq.size() > base.size() ? seq.back().second : base.back().second});
++    }
++  }
++}
++
++void RuleEngine::checkDerivedLayout(
++    const MPICallSite &call, std::vector<MPIError> &errors) {
++
++  if (!call.isDerivedType) {
++    return;
++  }
++
++  // Check if MPI datatype matches field types
++  for (const auto &fieldType : call.derivedFieldTypes) {
++
++    if (fieldType == "real" &&
++        call.datatype.find("mpi_real") == std::string::npos) {
++
++      errors.push_back(
++          {"DerivedLayout", "Derived type field (REAL) mismatches MPI datatype",
++              call.lineNumber});
++      return;
++    }
++
++    if (fieldType == "integer" &&
++        call.datatype.find("mpi_integer") == std::string::npos) {
++
++      errors.push_back({"DerivedLayout",
++          "Derived type field (INTEGER) mismatches MPI datatype",
++          call.lineNumber});
++      return;
++    }
++
++    if (fieldType == "complex" &&
++        call.datatype.find("mpi_complex") == std::string::npos) {
++      errors.push_back({"DerivedLayout",
++          "Derived type field (COMPLEX) mismatches MPI datatype",
++          call.lineNumber});
++      return;
++    }
++    if (fieldType == "character" &&
++        call.datatype.find("mpi_character") == std::string::npos) {
++      errors.push_back({"DerivedLayout",
++          "Derived type field (CHARACTER) mismatches MPI datatype",
++          call.lineNumber});
++      return;
++    }
++  }
++}
+diff --git a/flang/lib/Semantics/rule-engine.h b/flang/lib/Semantics/rule-engine.h
+new file mode 100644
+index 000000000000..0c4b182a46f6
+--- /dev/null
++++ b/flang/lib/Semantics/rule-engine.h
+@@ -0,0 +1,44 @@
++#pragma once
++
++#include "flang/MPICallSite.h"
++#include <string>
++#include <vector>
++
++struct MPIError {
++  std::string type;
++  std::string message;
++  int lineNumber;
++};
++
++class RuleEngine {
++public:
++  std::vector<MPIError> analyze(const std::vector<MPICallSite> &calls);
++
++private:
++  void checkBufferOverflow(
++      const MPICallSite &call, std::vector<MPIError> &errors);
++
++  void checkContiguity(const MPICallSite &call, std::vector<MPIError> &errors);
++
++  void checkDatatypeMismatch(
++      const MPICallSite &call, std::vector<MPIError> &errors);
++
++  //   void checkCollectiveMisuse(
++  //       const MPICallSite &call, std::vector<MPIError> &errors);
++
++  void checkOptionalArgs(
++      const MPICallSite &call, std::vector<MPIError> &errors);
++
++  void checkDerivedType(const MPICallSite &call, std::vector<MPIError> &errors);
++
++  void checkSendRecvMismatch(
++      const std::vector<MPICallSite> &calls, std::vector<MPIError> &errors);
++
++  void checkCollectiveReachability(
++      const std::vector<MPICallSite> &calls, std::vector<MPIError> &errors);
++
++  void checkCollectiveOrdering(
++      const std::vector<MPICallSite> &calls, std::vector<MPIError> &errors);
++  void checkDerivedLayout(
++      const MPICallSite &call, std::vector<MPIError> &errors);
++};
+\ No newline at end of file
+diff --git a/flang/lib/Semantics/semantics.cpp b/flang/lib/Semantics/semantics.cpp
+index 8bca853f01a2..632f858bbb0b 100644
+--- a/flang/lib/Semantics/semantics.cpp
++++ b/flang/lib/Semantics/semantics.cpp
+@@ -34,9 +34,11 @@
+ #include "check-stop.h"
+ #include "compute-offsets.h"
+ #include "mod-file.h"
++#include "mpi-checker.h"
+ #include "resolve-labels.h"
+ #include "resolve-names.h"
+ #include "rewrite-parse-tree.h"
++#include "rule-engine.h"
+ #include "flang/Parser/parse-tree-visitor.h"
+ #include "flang/Parser/tools.h"
+ #include "flang/Semantics/expression.h"
+@@ -685,6 +687,20 @@ bool Semantics::Perform() {
+       }
+     }
+   }
++
++  MPICallVisitor visitor;
++  visitor.allCooked = &context_.allCookedSources();
++  parser::Walk(program_, visitor);
++
++  visitor.PrintJSON();
++  RuleEngine engine;
++  auto errors = engine.analyze(visitor.calls);
++
++  for (const auto &e : errors) {
++    llvm::errs() << "[MPI ERROR] Line " << e.lineNumber << ": " << e.message
++                 << "\n";
++  }
++
+   return ValidateLabels(context_, program_) &&
+       parser::CanonicalizeDo(program_) && // force line break
+       CanonicalizeAcc(context_.messages(), program_) &&
+@@ -832,3 +848,4 @@ bool SemanticsContext::IsSymbolUsed(const Symbol &symbol) const {
+ }
+ 
+ } // namespace Fortran::semantics
++  // namespace Fortran::semantics
+-- 
+2.53.0
+
