@@ -476,4 +476,3 @@ Current limitations include:
 Sharanya Narendran
 
 MPI Semantic Analyzer for LLVM Flang
-Internship Project
