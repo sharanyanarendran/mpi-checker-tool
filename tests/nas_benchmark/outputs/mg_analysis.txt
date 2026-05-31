@@ -1,0 +1,3239 @@
+DEBUG EntityDecl: name='k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='it' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t0' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='tinit' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mflops' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='timer_read' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rnm2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rnmu' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='old2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='oldu' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='epsilon' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='nit' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='nn' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='verify_value' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='err' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='verified' currentDeclType='logical' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='fstatus' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='tsum' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t1' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='tming' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='tmaxg' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t_recs' currentDeclType='character' currentDerivedTypeName=''
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='dx' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='dy' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='log_p' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='d' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ax' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='next' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mi' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mip' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ng' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='idi' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='pi' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='idin' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='s' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='dir' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='v' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='r' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='c' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='r' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='c' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='r1' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='r2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='v' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='r' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u1' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m1k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m2k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m3k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m1j' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m2j' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m3j' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='r' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='s' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='d1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='d2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='d3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='x1' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='y1' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='x2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='y2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG EntityDecl: name='mm1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mm2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mm3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='z' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='d1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='d2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='d3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='z1' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='z2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='z3' currentDeclType='real' currentDerivedTypeName=''
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='nx0' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ny0' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='nz0' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rnm2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rnmu' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='r' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='s' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ss' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='dn' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='kk' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='title' currentDeclType='character' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rnm2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rnmu' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='kk' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='axis' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='kk' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='axis' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG ElseBlock fired
+DEBUG EntityDecl: name='axis' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='dir' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='buff_id' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='buff_len' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='axis' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='dir' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='buff_len' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='buff_id' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='axis' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='dir' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='buff_id' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='indx' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='axis' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='dir' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='buff_len' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='buff_id' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='axis' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='dir' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='buff_id' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='indx' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='axis' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='dir' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='buff_len' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='buff_id' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='kk' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='indx' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='axis' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='dir' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='u' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='buff_len' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='buff_id' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='kk' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='indx' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='nx' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ny' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i0' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m0' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='z' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mm' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='d1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='e1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='e2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='e3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='x' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='xx' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='x0' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='x1' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a1' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ai' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='power' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ten' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='temp' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='best' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='jg' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='jg_temp' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='randlc' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rdummy' currentDeclType='real' currentDerivedTypeName=''
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='z' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='z' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='z' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='aj' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n1j' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2j' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='nj' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='randlc' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rdummy' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='m' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ind' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ten' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='temp' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j_temp' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG EntityDecl: name='n1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='n3' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='z' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i1' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i2' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i3' currentDeclType='integer' currentDerivedTypeName=''
+[
+  {
+    "functionName": "get_active_nprocs",
+    "lineNumber": 88,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_abort",
+    "lineNumber": 106,
+    "rawCall": "call mpi_abort(mpi_comm_world, 1, ierr)",
+    "bufferName": "mpi_comm_world",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "ierr",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "timer_clear",
+    "lineNumber": 117,
+    "rawCall": "",
+    "bufferName": "i",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 120,
+    "rawCall": "call mpi_barrier(comm_work, ierr)",
+    "bufferName": "comm_work",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_bcast",
+    "lineNumber": 156,
+    "rawCall": "call mpi_bcast(lt, 1, mpi_integer, 0, comm_work, ierr)",
+    "bufferName": "lt",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": 0,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_bcast",
+    "lineNumber": 157,
+    "rawCall": "call mpi_bcast(nit, 1, mpi_integer, 0, comm_work, ierr)",
+    "bufferName": "nit",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": 0,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_bcast",
+    "lineNumber": 158,
+    "rawCall": "call mpi_bcast(nx(lt), 1, mpi_integer, 0, comm_work, ierr)",
+    "bufferName": "nx(lt)",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": 0,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_bcast",
+    "lineNumber": 159,
+    "rawCall": "call mpi_bcast(ny(lt), 1, mpi_integer, 0, comm_work, ierr)",
+    "bufferName": "ny(lt)",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": 0,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_bcast",
+    "lineNumber": 160,
+    "rawCall": "call mpi_bcast(nz(lt), 1, mpi_integer, 0, comm_work, ierr)",
+    "bufferName": "nz(lt)",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": 0,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_bcast",
+    "lineNumber": 161,
+    "rawCall": "call mpi_bcast(debug_vec(0), 8, mpi_integer, 0, comm_work, ierr)",
+    "bufferName": "debug_vec(0)",
+    "count": 8,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": 0,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_bcast",
+    "lineNumber": 163,
+    "rawCall": "call mpi_bcast(timeron, 1, mpi_logical, 0, comm_work, ierr)",
+    "bufferName": "timeron",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_logical",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": 0,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "setup",
+    "lineNumber": 225,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "zero3",
+    "lineNumber": 226,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "zran3",
+    "lineNumber": 227,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "norm2u3",
+    "lineNumber": 229,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "resid",
+    "lineNumber": 246,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "norm2u3",
+    "lineNumber": 247,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mg3p",
+    "lineNumber": 254,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "resid",
+    "lineNumber": 255,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "setup",
+    "lineNumber": 256,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "zero3",
+    "lineNumber": 257,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "zran3",
+    "lineNumber": 258,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "timer_clear",
+    "lineNumber": 268,
+    "rawCall": "",
+    "bufferName": "i",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 270,
+    "rawCall": "call mpi_barrier(comm_work,ierr)",
+    "bufferName": "comm_work",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "resid",
+    "lineNumber": 274,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "norm2u3",
+    "lineNumber": 275,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mg3p",
+    "lineNumber": 284,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "resid",
+    "lineNumber": 285,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "norm2u3",
+    "lineNumber": 289,
+    "rawCall": "",
+    "bufferName": "n1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_reduce",
+    "lineNumber": 295,
+    "rawCall": "call mpi_reduce(t0,t,1,dp_type, mpi_max,root,comm_work,ierr)",
+    "bufferName": "t0",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "1",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_max",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "print_results",
+    "lineNumber": 361,
+    "rawCall": "",
+    "bufferName": "nit",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_reduce",
+    "lineNumber": 379,
+    "rawCall": "call mpi_reduce(t1, tsum, t_last+2, dp_type, mpi_sum, 0, comm_work, ierr)",
+    "bufferName": "t1",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "t_last+2",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_sum",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_reduce",
+    "lineNumber": 381,
+    "rawCall": "call mpi_reduce(t1, tming, t_last+2, dp_type, mpi_min, 0, comm_work, ierr)",
+    "bufferName": "t1",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "t_last+2",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_min",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_reduce",
+    "lineNumber": 383,
+    "rawCall": "call mpi_reduce(t1, tmaxg, t_last+2, dp_type, mpi_max, 0, comm_work, ierr)",
+    "bufferName": "t1",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "t_last+2",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_max",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 537,
+    "rawCall": "call mpi_barrier(comm_work,ierr)",
+    "bufferName": "comm_work",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": true,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 558,
+    "rawCall": "call mpi_barrier(comm_work,ierr)",
+    "bufferName": "comm_work",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": true,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "rprj3",
+    "lineNumber": 597,
+    "rawCall": "",
+    "bufferName": "k",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "psinv",
+    "lineNumber": 606,
+    "rawCall": "",
+    "bufferName": "c",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "interp",
+    "lineNumber": 614,
+    "rawCall": "",
+    "bufferName": "k",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "resid",
+    "lineNumber": 619,
+    "rawCall": "",
+    "bufferName": "a",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "psinv",
+    "lineNumber": 623,
+    "rawCall": "",
+    "bufferName": "c",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "interp",
+    "lineNumber": 628,
+    "rawCall": "",
+    "bufferName": "u",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "resid",
+    "lineNumber": 629,
+    "rawCall": "",
+    "bufferName": "u",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "psinv",
+    "lineNumber": 630,
+    "rawCall": "",
+    "bufferName": "r",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "comm3",
+    "lineNumber": 692,
+    "rawCall": "",
+    "bufferName": "u",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "rep_nrm",
+    "lineNumber": 695,
+    "rawCall": "",
+    "bufferName": "u",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "showall",
+    "lineNumber": 699,
+    "rawCall": "",
+    "bufferName": "u",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "comm3",
+    "lineNumber": 762,
+    "rawCall": "",
+    "bufferName": "r",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "rep_nrm",
+    "lineNumber": 765,
+    "rawCall": "",
+    "bufferName": "r",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "showall",
+    "lineNumber": 769,
+    "rawCall": "",
+    "bufferName": "r",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "comm3",
+    "lineNumber": 860,
+    "rawCall": "",
+    "bufferName": "s",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "rep_nrm",
+    "lineNumber": 863,
+    "rawCall": "",
+    "bufferName": "s",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "showall",
+    "lineNumber": 867,
+    "rawCall": "",
+    "bufferName": "s",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "comm3_ex",
+    "lineNumber": 1028,
+    "rawCall": "",
+    "bufferName": "u",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "rep_nrm",
+    "lineNumber": 1031,
+    "rawCall": "",
+    "bufferName": "z",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "rep_nrm",
+    "lineNumber": 1032,
+    "rawCall": "",
+    "bufferName": "u",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "showall",
+    "lineNumber": 1036,
+    "rawCall": "",
+    "bufferName": "z",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "showall",
+    "lineNumber": 1037,
+    "rawCall": "",
+    "bufferName": "u",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_allreduce",
+    "lineNumber": 1088,
+    "rawCall": "call mpi_allreduce(rnmu,ss,1,dp_type, mpi_max,comm_work,ierr)",
+    "bufferName": "rnmu",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "1",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_max",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_allreduce",
+    "lineNumber": 1091,
+    "rawCall": "call mpi_allreduce(s, ss, 1, dp_type, mpi_sum,comm_work,ierr)",
+    "bufferName": "s",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "1",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_sum",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "norm2u3",
+    "lineNumber": 1124,
+    "rawCall": "",
+    "bufferName": "u",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "ready",
+    "lineNumber": 1158,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "ready",
+    "lineNumber": 1159,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "give3",
+    "lineNumber": 1161,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "give3",
+    "lineNumber": 1162,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "take3",
+    "lineNumber": 1164,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "take3",
+    "lineNumber": 1165,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "comm1p",
+    "lineNumber": 1168,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "zero3",
+    "lineNumber": 1172,
+    "rawCall": "",
+    "bufferName": "u",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "ready",
+    "lineNumber": 1201,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "ready",
+    "lineNumber": 1202,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "take3_ex",
+    "lineNumber": 1203,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "take3_ex",
+    "lineNumber": 1204,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "give3_ex",
+    "lineNumber": 1208,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "give3_ex",
+    "lineNumber": 1209,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "comm1p_ex",
+    "lineNumber": 1212,
+    "rawCall": "",
+    "bufferName": "axis",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_irecv",
+    "lineNumber": 1252,
+    "rawCall": "call mpi_irecv(buff(1,buff_id), buff_len, dp_type, nbr(axis,-dir,k), msg_type(axis,dir), comm_work, msg_id(axis,dir,1), ierr)",
+    "bufferName": "buff(1,buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 1296,
+    "rawCall": "call mpi_send(buff(1, buff_id), buff_len,dp_type, nbr(axis, dir, k), msg_type(axis,dir), comm_work, ierr)",
+    "bufferName": "buff(1, buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 1312,
+    "rawCall": "call mpi_send(buff(1, buff_id), buff_len,dp_type, nbr(axis, dir, k), msg_type(axis,dir), comm_work, ierr)",
+    "bufferName": "buff(1, buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 1332,
+    "rawCall": "call mpi_send(buff(1, buff_id), buff_len,dp_type, nbr(axis, dir, k), msg_type(axis,dir), comm_work, ierr)",
+    "bufferName": "buff(1, buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 1348,
+    "rawCall": "call mpi_send(buff(1, buff_id), buff_len,dp_type, nbr(axis, dir, k), msg_type(axis,dir), comm_work, ierr)",
+    "bufferName": "buff(1, buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+   COMM DEBUG: get_active_nprocs line=88 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_abort line=106 rank=-1 comm= hasElse=0
+COMM DEBUG: timer_clear line=117 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_barrier line=120 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_bcast line=156 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_bcast line=157 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_bcast line=158 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_bcast line=159 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_bcast line=160 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_bcast line=161 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_bcast line=163 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: setup line=225 rank=-1 comm= hasElse=0
+COMM DEBUG: zero3 line=226 rank=-1 comm= hasElse=0
+COMM DEBUG: zran3 line=227 rank=-1 comm= hasElse=0
+COMM DEBUG: norm2u3 line=229 rank=-1 comm= hasElse=0
+COMM DEBUG: resid line=246 rank=-1 comm= hasElse=0
+COMM DEBUG: norm2u3 line=247 rank=-1 comm= hasElse=0
+COMM DEBUG: mg3p line=254 rank=-1 comm= hasElse=0
+COMM DEBUG: resid line=255 rank=-1 comm= hasElse=0
+COMM DEBUG: setup line=256 rank=-1 comm= hasElse=0
+COMM DEBUG: zero3 line=257 rank=-1 comm= hasElse=0
+COMM DEBUG: zran3 line=258 rank=-1 comm= hasElse=0
+COMM DEBUG: timer_clear line=268 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_barrier line=270 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: resid line=274 rank=-1 comm= hasElse=0
+COMM DEBUG: norm2u3 line=275 rank=-1 comm= hasElse=0
+COMM DEBUG: mg3p line=284 rank=-1 comm= hasElse=0
+COMM DEBUG: resid line=285 rank=-1 comm= hasElse=0
+COMM DEBUG: norm2u3 line=289 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_reduce line=295 rank=-1 comm=mpi_max hasElse=0
+COMM DEBUG: print_results line=361 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_reduce line=379 rank=-1 comm=mpi_sum hasElse=0
+COMM DEBUG: mpi_reduce line=381 rank=-1 comm=mpi_min hasElse=0
+COMM DEBUG: mpi_reduce line=383 rank=-1 comm=mpi_max hasElse=0
+COMM DEBUG: mpi_barrier line=537 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_barrier line=558 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: rprj3 line=597 rank=-1 comm= hasElse=0
+COMM DEBUG: psinv line=606 rank=-1 comm= hasElse=0
+COMM DEBUG: interp line=614 rank=-1 comm= hasElse=0
+COMM DEBUG: resid line=619 rank=-1 comm= hasElse=0
+COMM DEBUG: psinv line=623 rank=-1 comm= hasElse=0
+COMM DEBUG: interp line=628 rank=-1 comm= hasElse=0
+COMM DEBUG: resid line=629 rank=-1 comm= hasElse=0
+COMM DEBUG: psinv line=630 rank=-1 comm= hasElse=0
+COMM DEBUG: comm3 line=692 rank=-1 comm= hasElse=0
+COMM DEBUG: rep_nrm line=695 rank=-1 comm= hasElse=0
+COMM DEBUG: showall line=699 rank=-1 comm= hasElse=0
+COMM DEBUG: comm3 line=762 rank=-1 comm= hasElse=0
+COMM DEBUG: rep_nrm line=765 rank=-1 comm= hasElse=0
+COMM DEBUG: showall line=769 rank=-1 comm= hasElse=0
+COMM DEBUG: comm3 line=860 rank=-1 comm= hasElse=0
+COMM DEBUG: rep_nrm line=863 rank=-1 comm= hasElse=0
+COMM DEBUG: showall line=867 rank=-1 comm= hasElse=0
+COMM DEBUG: comm3_ex line=1028 rank=-1 comm= hasElse=0
+COMM DEBUG: rep_nrm line=1031 rank=-1 comm= hasElse=0
+COMM DEBUG: rep_nrm line=1032 rank=-1 comm= hasElse=0
+COMM DEBUG: showall line=1036 rank=-1 comm= hasElse=0
+COMM DEBUG: showall line=1037 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_allreduce line=1088 rank=-1 comm=mpi_max hasElse=0
+COMM DEBUG: mpi_allreduce line=1091 rank=-1 comm=mpi_sum hasElse=0
+COMM DEBUG: norm2u3 line=1124 rank=-1 comm= hasElse=0
+COMM DEBUG: ready line=1158 rank=-1 comm= hasElse=0
+COMM DEBUG: ready line=1159 rank=-1 comm= hasElse=0
+COMM DEBUG: give3 line=1161 rank=-1 comm= hasElse=0
+COMM DEBUG: give3 line=1162 rank=-1 comm= hasElse=0
+COMM DEBUG: take3 line=1164 rank=-1 comm= hasElse=0
+COMM DEBUG: take3 line=1165 rank=-1 comm= hasElse=0
+COMM DEBUG: comm1p line=1168 rank=-1 comm= hasElse=0
+COMM DEBUG: zero3 line=1172 rank=-1 comm= hasElse=0
+COMM DEBUG: ready line=1201 rank=-1 comm= hasElse=0
+COMM DEBUG: ready line=1202 rank=-1 comm= hasElse=0
+COMM DEBUG: take3_ex line=1203 rank=-1 comm= hasElse=0
+COMM DEBUG: take3_ex line=1204 rank=-1 comm= hasElse=0
+COMM DEBUG: give3_ex line=1208 rank=-1 comm= hasElse=0
+COMM DEBUG: give3_ex line=1209 rank=-1 comm= hasElse=0
+COMM DEBUG: comm1p_ex line=1212 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_irecv line=1252 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_send line=1296 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_send line=1312 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_send line=1332 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_send line=1348 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_send line=1368 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_send line=1384 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_wait line=1423 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_send line=1533 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_send line=1551 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_send line=1571 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_send line=1589 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_send line=1609 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_send line=1627 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_wait line=1666 rank=-1 comm= hasElse=0
+COMM DEBUG: zero3 line=2152 rank=-1 comm= hasElse=0
+COMM DEBUG: vranlc line=2167 rank=-1 comm= hasElse=0
+COMM DEBUG: bubble line=2200 rank=-1 comm= hasElse=0
+COMM DEBUG: bubble line=2207 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_barrier line=2213 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_allreduce line=2223 rank=-1 comm=mpi_max hasElse=0
+COMM DEBUG: mpi_allreduce line=2239 rank=-1 comm=mpi_max hasElse=0
+COMM DEBUG: mpi_allreduce line=2247 rank=-1 comm=mpi_min hasElse=0
+COMM DEBUG: mpi_allreduce line=2263 rank=-1 comm=mpi_max hasElse=0
+COMM DEBUG: mpi_barrier line=2292 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: comm3 line=2306 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_barrier line=2347 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_barrier line=2385 rank=-1 comm=comm_work hasElse=0
+COMM DEBUG: mpi_barrier line=2418 rank=-1 comm=comm_work hasElse=0
+[MPI ERROR] Line 106: Custom or unrecognized MPI datatype 'ierr' — cannot validate type compatibility statically
+[MPI ERROR] Line 295: Custom or unrecognized MPI datatype '1' — cannot validate type compatibility statically
+[MPI ERROR] Line 379: Custom or unrecognized MPI datatype 't_last+2' — cannot validate type compatibility statically
+[MPI ERROR] Line 381: Custom or unrecognized MPI datatype 't_last+2' — cannot validate type compatibility statically
+[MPI ERROR] Line 383: Custom or unrecognized MPI datatype 't_last+2' — cannot validate type compatibility statically
+[MPI ERROR] Line 1088: Custom or unrecognized MPI datatype '1' — cannot validate type compatibility statically
+[MPI ERROR] Line 1091: Custom or unrecognized MPI datatype '1' — cannot validate type compatibility statically
+[MPI ERROR] Line 1252: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1296: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1296: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 1312: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1312: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 1332: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1332: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 1348: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1348: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 1368: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1368: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 1384: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1384: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 1423: Custom or unrecognized MPI datatype 'ierr' — cannot validate type compatibility statically
+[MPI ERROR] Line 1533: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1533: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 1551: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1551: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 1571: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1571: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 1589: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1589: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 1609: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1609: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 1627: Custom or unrecognized MPI datatype 'dp_type' — cannot validate type compatibility statically
+[MPI ERROR] Line 1627: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 1666: Custom or unrecognized MPI datatype 'ierr' — cannot validate type compatibility statically
+[MPI ERROR] Line 2223: Custom or unrecognized MPI datatype '1' — cannot validate type compatibility statically
+[MPI ERROR] Line 2239: Custom or unrecognized MPI datatype '4' — cannot validate type compatibility statically
+[MPI ERROR] Line 2247: Custom or unrecognized MPI datatype '1' — cannot validate type compatibility statically
+[MPI ERROR] Line 2263: Custom or unrecognized MPI datatype '4' — cannot validate type compatibility statically
+[MPI ERROR] Line 88: Possible MPI wrapper 'get_active_nprocs' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 117: Possible MPI wrapper 'timer_clear' passes buffer 'i' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 225: Possible MPI wrapper 'setup' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 226: Possible MPI wrapper 'zero3' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 227: Possible MPI wrapper 'zran3' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 229: Possible MPI wrapper 'norm2u3' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 246: Possible MPI wrapper 'resid' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 247: Possible MPI wrapper 'norm2u3' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 254: Possible MPI wrapper 'mg3p' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 255: Possible MPI wrapper 'resid' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 256: Possible MPI wrapper 'setup' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 257: Possible MPI wrapper 'zero3' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 258: Possible MPI wrapper 'zran3' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 268: Possible MPI wrapper 'timer_clear' passes buffer 'i' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 274: Possible MPI wrapper 'resid' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 275: Possible MPI wrapper 'norm2u3' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 284: Possible MPI wrapper 'mg3p' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 285: Possible MPI wrapper 'resid' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 289: Possible MPI wrapper 'norm2u3' passes buffer 'n1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 361: Possible MPI wrapper 'print_results' passes buffer 'nit' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 597: Possible MPI wrapper 'rprj3' passes buffer 'k' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 606: Possible MPI wrapper 'psinv' passes buffer 'c' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 614: Possible MPI wrapper 'interp' passes buffer 'k' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 619: Possible MPI wrapper 'resid' passes buffer 'a' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 623: Possible MPI wrapper 'psinv' passes buffer 'c' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 628: Possible MPI wrapper 'interp' passes buffer 'u' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 629: Possible MPI wrapper 'resid' passes buffer 'u' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 630: Possible MPI wrapper 'psinv' passes buffer 'r' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 692: Possible MPI wrapper 'comm3' passes buffer 'u' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 695: Possible MPI wrapper 'rep_nrm' passes buffer 'u' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 699: Possible MPI wrapper 'showall' passes buffer 'u' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 762: Possible MPI wrapper 'comm3' passes buffer 'r' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 765: Possible MPI wrapper 'rep_nrm' passes buffer 'r' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 769: Possible MPI wrapper 'showall' passes buffer 'r' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 860: Possible MPI wrapper 'comm3' passes buffer 's' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 863: Possible MPI wrapper 'rep_nrm' passes buffer 's' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 867: Possible MPI wrapper 'showall' passes buffer 's' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1028: Possible MPI wrapper 'comm3_ex' passes buffer 'u' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1031: Possible MPI wrapper 'rep_nrm' passes buffer 'z' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1032: Possible MPI wrapper 'rep_nrm' passes buffer 'u' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1036: Possible MPI wrapper 'showall' passes buffer 'z' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1037: Possible MPI wrapper 'showall' passes buffer 'u' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1124: Possible MPI wrapper 'norm2u3' passes buffer 'u' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1158: Possible MPI wrapper 'ready' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1159: Possible MPI wrapper 'ready' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1161: Possible MPI wrapper 'give3' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1162: Possible MPI wrapper 'give3' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1164: Possible MPI wrapper 'take3' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1165: Possible MPI wrapper 'take3' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1168: Possible MPI wrapper 'comm1p' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1172: Possible MPI wrapper 'zero3' passes buffer 'u' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1201: Possible MPI wrapper 'ready' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1202: Possible MPI wrapper 'ready' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1203: Possible MPI wrapper 'take3_ex' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1204: Possible MPI wrapper 'take3_ex' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1208: Possible MPI wrapper 'give3_ex' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1209: Possible MPI wrapper 'give3_ex' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 1212: Possible MPI wrapper 'comm1p_ex' passes buffer 'axis' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 2152: Possible MPI wrapper 'zero3' passes buffer 'z' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 2167: Possible MPI wrapper 'vranlc' passes buffer 'd1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 2200: Possible MPI wrapper 'bubble' passes buffer 'ten' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 2207: Possible MPI wrapper 'bubble' passes buffer 'ten' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 2306: Possible MPI wrapper 'comm3' passes buffer 'z' — inter-procedural analysis not supported, verify MPI usage inside callee
+mg.f90:163:7: warning: Reference to the procedure 'mpi_bcast' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object types: INTEGER(4) vs LOGICAL(4) [-Wincompatible-implicit-interfaces]
+        call mpi_bcast(timeron, 1, MPI_LOGICAL, 0, comm_work, ierr)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mg.f90:156:7: previous reference to 'mpi_bcast'
+        call mpi_bcast(lt, 1, MPI_INTEGER, 0, comm_work, ierr)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mg.f90:379:7: warning: Reference to the procedure 'mpi_reduce' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object shapes [-Wincompatible-implicit-interfaces]
+        call MPI_Reduce(t1, tsum,  t_last+2, dp_type, MPI_SUM,  &
+        ^
+mg.f90:295:7: previous reference to 'mpi_reduce'
+        call mpi_reduce(t0,t,1,dp_type,  &
+        ^
+mg.f90:381:7: warning: Reference to the procedure 'mpi_reduce' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object shapes [-Wincompatible-implicit-interfaces]
+        call MPI_Reduce(t1, tming, t_last+2, dp_type, MPI_MIN,  &
+        ^
+mg.f90:295:7: previous reference to 'mpi_reduce'
+        call mpi_reduce(t0,t,1,dp_type,  &
+        ^
+mg.f90:383:7: warning: Reference to the procedure 'mpi_reduce' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object shapes [-Wincompatible-implicit-interfaces]
+        call MPI_Reduce(t1, tmaxg, t_last+2, dp_type, MPI_MAX,  &
+        ^
+mg.f90:295:7: previous reference to 'mpi_reduce'
+        call mpi_reduce(t0,t,1,dp_type,  &
+        ^
+mg.f90:2239:10: warning: Reference to the procedure 'mpi_allreduce' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object types: REAL(8) vs INTEGER(4) [-Wincompatible-implicit-interfaces]
+           call mpi_allreduce(jg(0,i,1), jg_temp,4,MPI_INTEGER,  &
+           ^
+mg.f90:1088:7: previous reference to 'mpi_allreduce'
+        call mpi_allreduce(rnmu,ss,1,dp_type,  &
+        ^
+mg.f90:2263:10: warning: Reference to the procedure 'mpi_allreduce' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object types: REAL(8) vs INTEGER(4) [-Wincompatible-implicit-interfaces]
+           call mpi_allreduce(jg(0,i,0), jg_temp,4,MPI_INTEGER,  &
+           ^
+mg.f90:1088:7: previous reference to 'mpi_allreduce'
+        call mpi_allreduce(rnmu,ss,1,dp_type,  &
+        ^
+ "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 1368,
+    "rawCall": "call mpi_send(buff(1, buff_id), buff_len,dp_type, nbr(axis, dir, k), msg_type(axis,dir), comm_work, ierr)",
+    "bufferName": "buff(1, buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 1384,
+    "rawCall": "call mpi_send(buff(1, buff_id), buff_len,dp_type, nbr(axis, dir, k), msg_type(axis,dir), comm_work, ierr)",
+    "bufferName": "buff(1, buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_wait",
+    "lineNumber": 1423,
+    "rawCall": "call mpi_wait(msg_id(axis, dir, 1),status,ierr)",
+    "bufferName": "msg_id(axis, dir, 1)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "ierr",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 1533,
+    "rawCall": "call mpi_send(buff(1, buff_id), buff_len,dp_type, nbr(axis, dir, k), msg_type(axis,dir), comm_work, ierr)",
+    "bufferName": "buff(1, buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 1551,
+    "rawCall": "call mpi_send(buff(1, buff_id), buff_len,dp_type, nbr(axis, dir, k), msg_type(axis,dir), comm_work, ierr)",
+    "bufferName": "buff(1, buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 1571,
+    "rawCall": "call mpi_send(buff(1, buff_id), buff_len,dp_type, nbr(axis, dir, k), msg_type(axis,dir), comm_work, ierr)",
+    "bufferName": "buff(1, buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 1589,
+    "rawCall": "call mpi_send(buff(1, buff_id), buff_len,dp_type, nbr(axis, dir, k), msg_type(axis,dir), comm_work, ierr)",
+    "bufferName": "buff(1, buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 1609,
+    "rawCall": "call mpi_send(buff(1, buff_id), buff_len,dp_type, nbr(axis, dir, k), msg_type(axis,dir), comm_work, ierr)",
+    "bufferName": "buff(1, buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 1627,
+    "rawCall": "call mpi_send(buff(1, buff_id), buff_len,dp_type, nbr(axis, dir, k), msg_type(axis,dir), comm_work, ierr)",
+    "bufferName": "buff(1, buff_id)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "dp_type",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_wait",
+    "lineNumber": 1666,
+    "rawCall": "call mpi_wait(msg_id(axis, dir, 1),status,ierr)",
+    "bufferName": "msg_id(axis, dir, 1)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "ierr",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "zero3",
+    "lineNumber": 2152,
+    "rawCall": "",
+    "bufferName": "z",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "vranlc",
+    "lineNumber": 2167,
+    "rawCall": "",
+    "bufferName": "d1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "bubble",
+    "lineNumber": 2200,
+    "rawCall": "",
+    "bufferName": "ten",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "bubble",
+    "lineNumber": 2207,
+    "rawCall": "",
+    "bufferName": "ten",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 2213,
+    "rawCall": "call mpi_barrier(comm_work,ierr)",
+    "bufferName": "comm_work",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_allreduce",
+    "lineNumber": 2223,
+    "rawCall": "call mpi_allreduce(best,temp,1,dp_type, mpi_max,comm_work,ierr)",
+    "bufferName": "best",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "1",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_max",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": true,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_allreduce",
+    "lineNumber": 2239,
+    "rawCall": "call mpi_allreduce(jg(0,i,1), jg_temp,4,mpi_integer, mpi_max,comm_work,ierr)",
+    "bufferName": "jg(0,i,1)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "4",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": 3,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_max",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": true,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_allreduce",
+    "lineNumber": 2247,
+    "rawCall": "call mpi_allreduce(best,temp,1,dp_type, mpi_min,comm_work,ierr)",
+    "bufferName": "best",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "1",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_min",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": true,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_allreduce",
+    "lineNumber": 2263,
+    "rawCall": "call mpi_allreduce(jg(0,i,0), jg_temp,4,mpi_integer, mpi_max,comm_work,ierr)",
+    "bufferName": "jg(0,i,0)",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "4",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": 3,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_max",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": true,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 2292,
+    "rawCall": "call mpi_barrier(comm_work,ierr)",
+    "bufferName": "comm_work",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "comm3",
+    "lineNumber": 2306,
+    "rawCall": "",
+    "bufferName": "z",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 2347,
+    "rawCall": "call mpi_barrier(comm_work,ierr)",
+    "bufferName": "comm_work",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": true,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 2385,
+    "rawCall": "call mpi_barrier(comm_work,ierr)",
+    "bufferName": "comm_work",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": true,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 2418,
+    "rawCall": "call mpi_barrier(comm_work,ierr)",
+    "bufferName": "comm_work",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_work",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": true,
+    "rankConditionText": ""
+  }
+]

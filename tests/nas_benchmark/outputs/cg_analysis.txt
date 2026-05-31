@@ -1,0 +1,125 @@
+
+DEBUG EntityDecl: name='na' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='nonzer' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='niter' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='shift' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rcond' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='convertdouble' currentDeclType='logical' currentDerivedTypeName=''
+DEBUG EntityDecl: name='compiletime' currentDeclType='character' currentDerivedTypeName=''
+DEBUG EntityDecl: name='npbversion' currentDeclType='character' currentDerivedTypeName=''
+DEBUG EntityDecl: name='cs1' currentDeclType='character' currentDerivedTypeName=''
+DEBUG EntityDecl: name='cs2' currentDeclType='character' currentDerivedTypeName=''
+DEBUG EntityDecl: name='cs3' currentDeclType='character' currentDerivedTypeName=''
+DEBUG EntityDecl: name='cs4' currentDeclType='character' currentDerivedTypeName=''
+DEBUG EntityDecl: name='cs5' currentDeclType='character' currentDerivedTypeName=''
+DEBUG EntityDecl: name='cs6' currentDeclType='character' currentDerivedTypeName=''
+DEBUG EntityDecl: name='cs7' currentDeclType='character' currentDerivedTypeName=''
+DEBUG EntityDecl: name='colidx' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rowstr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='iv' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='arow' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='acol' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='v' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='aelt' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='x' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='z' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='p' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='q' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='r' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='w' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='amult' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='tran' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='norm_temp1' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='norm_temp2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='num_procs' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='num_proc_rows' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='num_proc_cols' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='nz' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='naa' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='nzz' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='npcols' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='nprows' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='proc_col' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='proc_row' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='firstrow' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='lastrow' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='firstcol' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='lastcol' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='exch_proc' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='exch_recv_length' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='send_start' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='send_len' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='l2npcols' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='reduce_exch_proc' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='reduce_send_starts' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='reduce_send_lengths' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='reduce_recv_starts' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='reduce_recv_lengths' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t_total' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t_conjg' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t_rcomm' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t_ncomm' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t_last' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='timeron' currentDeclType='logical' currentDerivedTypeName=''
+DEBUG EntityDecl: name='naz' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ios' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ios' currentDeclType='integer' currentDerivedTypeName=''
+[
+  {
+    "functionName": "mpi_abort",
+    "lineNumber": 119,
+    "rawCall": "call mpi_abort(mpi_comm_world, mpi_err_other, ierr)",
+    "bufferName": "mpi_comm_world",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "ierr",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_abort",
+    "lineNumber": 156,
+    "rawCall": "call mpi_abort(mpi_comm_world, mpi_err_other, ierr)",
+    "bufferName": "mpi_comm_world",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "ierr",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  }
+]
+COMM DEBUG: mpi_abort line=119 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_abort line=156 rank=-1 comm= hasElse=0
+[MPI ERROR] Line 119: Custom or unrecognized MPI datatype 'ierr' — cannot validate type compatibility statically
+[MPI ERROR] Line 156: Custom or unrecognized MPI datatype 'ierr' — cannot validate type compatibility statically
+namitha@Namitha CG % 

@@ -434,15 +434,17 @@ Demonstrate known limitations including:
 
 ---
 
-# NAS Benchmark Survey
+## NAS Benchmark Evaluation
 
-A source-level evaluation was performed on:
+Real-world MPI communication patterns were studied using the NAS Parallel Benchmarks (NPB 3.4.4 MPI version), including:
 
-* NAS CG
-* NAS MG
-* NAS EP
+* CG (Conjugate Gradient)
+* MG (Multi-Grid)
+* EP (Embarrassingly Parallel)
 
-Observed MPI patterns:
+The benchmarks were successfully compiled and executed using OpenMPI, and selected benchmark source files were analyzed using the modified Flang frontend.
+
+Observed MPI communication routines include:
 
 * MPI_Send
 * MPI_Irecv
@@ -455,9 +457,8 @@ Observed MPI patterns:
 * MPI_Finalize
 * MPI_Abort
 
-These communication patterns align with the implemented rule set and demonstrate applicability to real-world MPI applications.
+The MPI checker successfully extracted communication metadata and generated diagnostics on NAS benchmark source code, demonstrating applicability beyond synthetic unit and integration tests. The evaluation confirms that the implemented rule set targets communication patterns commonly found in real-world HPC applications.
 
----
 
 # Limitations
 

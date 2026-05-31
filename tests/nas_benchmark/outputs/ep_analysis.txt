@@ -1,0 +1,660 @@
+ ~/Desktop/llvm-project/build/bin/flang-new \
+-c ep.f90 \
+-I . \
+-I /opt/homebrew/include \
+2>&1 | tee ~/Desktop/ep_analysis.txt
+DEBUG EntityDecl: name='mops' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t1' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t3' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t4' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='x1' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='x2' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='sx' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='sy' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='tm' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='an' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='tt' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='gc' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='dum' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='i' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ik' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='kk' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='l' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='k' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='nit' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='no_large_nodes' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='np' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='np_add' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='k_offset' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='j' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierrcode' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='verified' currentDeclType='logical' currentDerivedTypeName=''
+DEBUG EntityDecl: name='timers_enabled' currentDeclType='logical' currentDerivedTypeName=''
+DEBUG EntityDecl: name='randlc' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='timer_read' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='size' currentDeclType='character' currentDerivedTypeName=''
+DEBUG EntityDecl: name='classv' currentDeclType='character' currentDerivedTypeName=''
+DEBUG EntityDecl: name='epsilon' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='tsum' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t1m' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='tming' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='tmaxg' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='t_recs' currentDeclType='character' currentDerivedTypeName=''
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+COMM DEBUG: check_timer_flag line=112 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_bcast line=115 rank=-1 comm=comm_solve hasElse=0
+COMM DEBUG: mpi_abort line=137 rank=-1 comm= hasElse=0
+COMM DEBUG: timer_clear line=157 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_barrier line=159 rank=-1 comm=comm_solve hasElse=0
+COMM DEBUG: vranlc line=163 rank=-1 comm= hasElse=0
+COMM DEBUG: vranlc line=212 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_allreduce line=241 rank=-1 comm=mpi_sum hasElse=0
+COMM DEBUG: mpi_allreduce line=244 rank=-1 comm=mpi_sum hasElse=0
+COMM DEBUG: mpi_allreduce line=247 rank=-1 comm=mpi_sum hasElse=0
+COMM DEBUG: mpi_allreduce line=262 rank=-1 comm=mpi_max hasElse=0
+COMM DEBUG: verify line=267 rank=-1 comm= hasElse=0
+COMM DEBUG: print_results line=277 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_reduce line=294 rank=-1 comm=mpi_sum hasElse=0
+COMM DEBUG: mpi_reduce line=296 rank=-1 comm=mpi_min hasElse=0
+COMM DEBUG: mpi_reduce line=298 rank=-1 comm=mpi_max hasElse=0
+[MPI ERROR] Line 137: Custom or unrecognized MPI datatype 'ierr' — cannot validate type compatibility statically
+[MPI ERROR] Line 241: Custom or unrecognized MPI datatype '1' — cannot validate type compatibility statically
+[MPI ERROR] Line 244: Custom or unrecognized MPI datatype '1' — cannot validate type compatibility statically
+[MPI ERROR] Line 247: Custom or unrecognized MPI datatype 'nq' — cannot validate type compatibility statically
+[MPI ERROR] Line 262: Custom or unrecognized MPI datatype '1' — cannot validate type compatibility statically
+[MPI ERROR] Line 294: Custom or unrecognized MPI datatype 't_last+2' — cannot validate type compatibility statically
+[MPI ERROR] Line 296: Custom or unrecognized MPI datatype 't_last+2' — cannot validate type compatibility statically
+[MPI ERROR] Line 298: Custom or unrecognized MPI datatype 't_last+2' — cannot validate type compatibility statically
+[MPI ERROR] Line 112: Possible MPI wrapper 'check_timer_flag' passes buffer 'timers_enabled' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 157: Possible MPI wrapper 'timer_clear' passes buffer 'i' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 163: Possible MPI wrapper 'vranlc' passes buffer 't1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 212: Possible MPI wrapper 'vranlc' passes buffer 't1' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 267: Possible MPI wrapper 'verify' passes buffer 'sx' — inter-procedural analysis not supported, verify MPI usage inside callee
+[MPI ERROR] Line 277: Possible MPI wrapper 'print_results' passes buffer 'nit' — inter-procedural analysis not supported, verify MPI usage inside callee
+error: Semantic errors in ep.f90
+ep.f90:48:11: error: Cannot parse module file for module 'ep_data': Source file 'ep_data.mod' was not found
+        use ep_data
+            ^^^^^^^
+ep.f90:70:29: error: No explicit type declared for 't_last'
+        double precision tsum(t_last+2), t1m(t_last+2),  &
+                              ^^^^^^
+ep.f90:70:44: error: No explicit type declared for 't_last'
+        double precision tsum(t_last+2), t1m(t_last+2),  &
+                                             ^^^^^^
+ep.f90:71:30: error: No explicit type declared for 't_last'
+       &                 tming(t_last+2), tmaxg(t_last+2)
+                               ^^^^^^
+ep.f90:71:47: error: No explicit type declared for 't_last'
+       &                 tming(t_last+2), tmaxg(t_last+2)
+                                                ^^^^^^
+ep.f90:72:31: error: No explicit type declared for 't_last'
+        character        t_recs(t_last+2)*8
+                                ^^^^^^
+ep.f90:87:17: error: No explicit type declared for 'convertdouble'
+        if (.not. convertdouble) then
+                  ^^^^^^^^^^^^^
+ep.f90:101:42: error: No explicit type declared for 'm'
+            write(size, '(f15.0)' ) 2.d0**(m+1)
+                                           ^
+ep.f90:104:37: error: No explicit type declared for 'class'
+            write (*,1001) size(1:j), class
+                                      ^^^^^
+ep.f90:124:12: error: No explicit type declared for 'nn'
+        np = nn / no_nodes
+             ^^
+ep.f90:125:28: error: No explicit type declared for 'nn'
+        no_large_nodes = mod(nn, no_nodes)
+                             ^^
+ep.f90:134:33: error: No explicit type declared for 'nn'
+           write (6, 1) no_nodes, nn
+                                  ^^
+ep.f90:148:24: error: No explicit type declared for 'nk'
+        do 5    i = 1, 2*nk
+                         ^^
+ep.f90:149:10: error: No explicit type declared for 'x'
+           x(i) = -1.d99
+           ^
+ep.f90:156:17: error: No explicit type declared for 't_last'
+        do i = 1, t_last
+                  ^^^^^^
+ep.f90:162:12: error: No explicit type declared for 'a'
+        t1 = a
+             ^
+ep.f90:163:26: error: No explicit type declared for 'a'
+        call vranlc(0, t1, a, x)
+                           ^
+ep.f90:167:12: error: No explicit type declared for 'a'
+        t1 = a
+             ^
+ep.f90:169:21: error: No explicit type declared for 'mk'
+        do 100 i = 1, mk + 1
+                      ^^
+ep.f90:174:12: error: No explicit type declared for 's'
+        tt = s
+             ^
+ep.f90:179:21: error: No explicit type declared for 'nq'
+        do 110 i = 0, nq - 1
+                      ^^
+ep.f90:180:10: error: No explicit type declared for 'q'
+           q(i) = 0.d0
+           ^
+ep.f90:195:15: error: No explicit type declared for 's'
+           t1 = s
+                ^
+ep.f90:211:47: error: No explicit type declared for 't_randn'
+           if (timers_enabled) call timer_start(t_randn)
+                                                ^^^^^^^
+ep.f90:212:26: error: No explicit type declared for 'nk'
+           call vranlc(2 * nk, t1, a, x)
+                           ^^
+ep.f90:212:34: error: No explicit type declared for 'a'
+           call vranlc(2 * nk, t1, a, x)
+                                   ^
+ep.f90:213:46: error: No explicit type declared for 't_randn'
+           if (timers_enabled) call timer_stop(t_randn)
+                                               ^^^^^^^
+ep.f90:219:47: error: No explicit type declared for 't_gpairs'
+           if (timers_enabled) call timer_start(t_gpairs)
+                                                ^^^^^^^^
+ep.f90:221:24: error: No explicit type declared for 'nk'
+           do 140 i = 1, nk
+                         ^^
+ep.f90:236:46: error: No explicit type declared for 't_gpairs'
+           if (timers_enabled) call timer_stop(t_gpairs)
+                                               ^^^^^^^^
+ep.f90:240:44: error: No explicit type declared for 't_rcomm'
+        if (timers_enabled) call timer_start(t_rcomm)
+                                             ^^^^^^^
+ep.f90:247:32: error: No explicit type declared for 'nq'
+        call mpi_allreduce(q, x, nq, dp_type,  &
+                                 ^^
+ep.f90:249:43: error: No explicit type declared for 't_rcomm'
+        if (timers_enabled) call timer_stop(t_rcomm)
+                                            ^^^^^^^
+ep.f90:251:17: error: No explicit type declared for 'nq'
+        do i = 1, nq
+                  ^^
+ep.f90:255:21: error: No explicit type declared for 'nq'
+        do 160 i = 0, nq - 1
+                      ^^
+ep.f90:267:22: error: No explicit type declared for 'm'
+           call verify(m, sx, sy, gc, verified, classv)
+                       ^
+ep.f90:270:24: error: No explicit type declared for 'm'
+           Mops = 2.d0**(m+1)/tm/1000000.d0
+                         ^
+ep.f90:272:27: error: No explicit type declared for 'm'
+           write (6,11) tm, m, gc, sx, sy, (i, q(i), i = 0, nq - 1)
+                            ^
+ep.f90:272:59: error: No explicit type declared for 'nq'
+           write (6,11) tm, m, gc, sx, sy, (i, q(i), i = 0, nq - 1)
+                                                            ^^
+ep.f90:277:35: error: No explicit type declared for 'class'
+           call print_results('EP', class, m+1, 0, 0, nit, no_nodes,  &
+                                    ^^^^^
+ep.f90:277:42: error: No explicit type declared for 'm'
+           call print_results('EP', class, m+1, 0, 0, nit, no_nodes,  &
+                                           ^
+ep.f90:280:39: error: No explicit type declared for 'npbversion'
+       &                      verified, npbversion, compiletime, cs1,  &
+                                        ^^^^^^^^^^
+ep.f90:280:51: error: No explicit type declared for 'compiletime'
+       &                      verified, npbversion, compiletime, cs1,  &
+                                                    ^^^^^^^^^^^
+ep.f90:280:64: error: No explicit type declared for 'cs1'
+       &                      verified, npbversion, compiletime, cs1,  &
+                                                                 ^^^
+ep.f90:281:29: error: No explicit type declared for 'cs2'
+       &                      cs2, cs3, cs4, cs5, cs6, cs7)
+                              ^^^
+ep.f90:281:34: error: No explicit type declared for 'cs3'
+       &                      cs2, cs3, cs4, cs5, cs6, cs7)
+                                   ^^^
+ep.f90:281:39: error: No explicit type declared for 'cs4'
+       &                      cs2, cs3, cs4, cs5, cs6, cs7)
+                                        ^^^
+ep.f90:281:44: error: No explicit type declared for 'cs5'
+       &                      cs2, cs3, cs4, cs5, cs6, cs7)
+                                             ^^^
+ep.f90:281:49: error: No explicit type declared for 'cs6'
+       &                      cs2, cs3, cs4, cs5, cs6, cs7)
+                                                  ^^^
+ep.f90:281:54: error: No explicit type declared for 'cs7'
+       &                      cs2, cs3, cs4, cs5, cs6, cs7)
+                                                       ^^^
+ep.f90:288:17: error: No explicit type declared for 't_last'
+        do i = 1, t_last
+                  ^^^^^^
+ep.f90:291:11: error: No explicit type declared for 't_last'
+        t1m(t_last+2) = t1m(t_rcomm)
+            ^^^^^^
+ep.f90:291:27: error: No explicit type declared for 't_rcomm'
+        t1m(t_last+2) = t1m(t_rcomm)
+                            ^^^^^^^
+ep.f90:292:11: error: No explicit type declared for 't_last'
+        t1m(t_last+1) = t1m(t_total) - t1m(t_last+2)
+            ^^^^^^
+ep.f90:292:27: error: No explicit type declared for 't_total'
+        t1m(t_last+1) = t1m(t_total) - t1m(t_last+2)
+                            ^^^^^^^
+ep.f90:292:42: error: No explicit type declared for 't_last'
+        t1m(t_last+1) = t1m(t_total) - t1m(t_last+2)
+                                           ^^^^^^
+ep.f90:294:35: error: No explicit type declared for 't_last'
+        call MPI_Reduce(t1m, tsum,  t_last+2, dp_type, MPI_SUM,  &
+                                    ^^^^^^
+ep.f90:296:35: error: No explicit type declared for 't_last'
+        call MPI_Reduce(t1m, tming, t_last+2, dp_type, MPI_MIN,  &
+                                    ^^^^^^
+ep.f90:298:35: error: No explicit type declared for 't_last'
+        call MPI_Reduce(t1m, tmaxg, t_last+2, dp_type, MPI_MAX,  &
+                                    ^^^^^^
+ep.f90:303:20: error: No explicit type declared for 't_last'
+           do i = 1, t_last+2
+                     ^^^^^^
+[
+  {
+    "functionName": "check_timer_flag",
+    "lineNumber": 112,
+    "rawCall": "",
+    "bufferName": "timers_enabled",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "logical",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_bcast",
+    "lineNumber": 115,
+    "rawCall": "call mpi_bcast(timers_enabled, 1, mpi_logical, root, comm_solve, ierr)",
+    "bufferName": "timers_enabled",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_logical",
+    "variableType": "logical",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_solve",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_abort",
+    "lineNumber": 137,
+    "rawCall": "call mpi_abort(mpi_comm_world,ierrcode,ierr)",
+    "bufferName": "mpi_comm_world",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "ierr",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "timer_clear",
+    "lineNumber": 157,
+    "rawCall": "",
+    "bufferName": "i",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 159,
+    "rawCall": "call mpi_barrier(comm_solve, ierr)",
+    "bufferName": "comm_solve",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "comm_solve",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "vranlc",
+    "lineNumber": 163,
+    "rawCall": "",
+    "bufferName": "t1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "vranlc",
+    "lineNumber": 212,
+    "rawCall": "",
+    "bufferName": "t1",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_allreduce",
+    "lineNumber": 241,
+    "rawCall": "call mpi_allreduce(sx, x, 1, dp_type, mpi_sum, comm_solve, ierr)",
+    "bufferName": "sx",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "1",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_sum",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_allreduce",
+    "lineNumber": 244,
+    "rawCall": "call mpi_allreduce(sy, x, 1, dp_type, mpi_sum, comm_solve, ierr)",
+    "bufferName": "sy",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "1",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_sum",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_allreduce",
+    "lineNumber": 247,
+    "rawCall": "call mpi_allreduce(q, x, nq, dp_type, mpi_sum, comm_solve, ierr)",
+    "bufferName": "q",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "nq",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_sum",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_allreduce",
+    "lineNumber": 262,
+    "rawCall": "call mpi_allreduce(tm, x, 1, dp_type, mpi_max, comm_solve, ierr)",
+    "bufferName": "tm",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "1",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_max",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "verify",
+    "lineNumber": 267,
+    "rawCall": "",
+    "bufferName": "sx",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "print_results",
+    "lineNumber": 277,
+    "rawCall": "",
+    "bufferName": "nit",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_reduce",
+    "lineNumber": 294,
+    "rawCall": "call mpi_reduce(t1m, tsum, t_last+2, dp_type, mpi_sum, 0, comm_solve, ierr)",
+    "bufferName": "t1m",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "t_last+2",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_sum",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_reduce",
+    "lineNumber": 296,
+    "rawCall": "call mpi_reduce(t1m, tming, t_last+2, dp_type, mpi_min, 0, comm_solve, ierr)",
+    "bufferName": "t1m",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "t_last+2",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_min",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_reduce",
+    "lineNumber": 298,
+    "rawCall": "call mpi_reduce(t1m, tmaxg, t_last+2, dp_type, mpi_max, 0, comm_solve, ierr)",
+    "bufferName": "t1m",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "t_last+2",
+    "variableType": "real",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_max",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  }
+]
