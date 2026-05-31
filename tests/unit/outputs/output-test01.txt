@@ -1,0 +1,30 @@
+DEBUG EntityDecl: name='a' currentDeclType='integer' currentDerivedTypeName=''
+COMM DEBUG: mpi_send line=3 rank=-1 comm=mpi_comm_world hasElse=0
+[MPI ERROR] Line 3: Count exceeds buffer size
+[
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 3,
+    "rawCall": "call mpi_send(a,10,mpi_integer,1,0,mpi_comm_world)",
+    "bufferName": "a",
+    "count": 10,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  }
+]

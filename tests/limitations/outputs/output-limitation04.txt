@@ -1,0 +1,59 @@
+DEBUG EntityDecl: name='mpi_comm_world' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mpi_integer' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='x' currentDeclType='integer' currentDerivedTypeName=''
+COMM DEBUG: foo line=12 rank=-1 comm= hasElse=0
+COMM DEBUG: mpi_send line=22 rank=-1 comm=mpi_comm_world hasElse=0
+[MPI ERROR] Line 12: Possible MPI wrapper 'foo' passes buffer 'a' — inter-procedural analysis not supported, verify MPI usage inside callee
+[
+  {
+    "functionName": "foo",
+    "lineNumber": 12,
+    "rawCall": "",
+    "bufferName": "a",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": true,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 22,
+    "rawCall": "call mpi_send(x, size(x), mpi_integer, 1, 0, mpi_comm_world)",
+    "bufferName": "x",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  }
+]

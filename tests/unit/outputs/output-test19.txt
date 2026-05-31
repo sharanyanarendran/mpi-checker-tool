@@ -1,0 +1,114 @@
+DEBUG EntityDecl: name='mpi_comm_world' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mpi_integer' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rank' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG ElseBlock fired
+DEBUG ElseBlock fired
+COMM DEBUG: mpi_barrier line=13 rank=0 comm=mpi_comm_world hasElse=1
+COMM DEBUG: mpi_barrier line=15 rank=-4 comm=mpi_comm_world hasElse=1
+COMM DEBUG: mpi_bcast line=19 rank=0 comm=mpi_comm_world hasElse=1
+COMM DEBUG: mpi_barrier line=21 rank=-4 comm=mpi_comm_world hasElse=1
+[MPI ERROR] Line 21: else branch calls mpi_barrier but rank 0 calls mpi_bcast
+[
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 13,
+    "rawCall": "call mpi_barrier(mpi_comm_world, ierr)",
+    "bufferName": "mpi_comm_world",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 15,
+    "rawCall": "call mpi_barrier(mpi_comm_world, ierr)",
+    "bufferName": "mpi_comm_world",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_bcast",
+    "lineNumber": 19,
+    "rawCall": "call mpi_bcast(a, 5, mpi_integer, 0, mpi_comm_world, ierr)",
+    "bufferName": "a",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": 0,
+    "tag": -1,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 21,
+    "rawCall": "call mpi_barrier(mpi_comm_world, ierr)",
+    "bufferName": "mpi_comm_world",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  }
+]

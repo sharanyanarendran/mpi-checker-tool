@@ -1,0 +1,583 @@
+DEBUG EntityDecl: name='mpi_comm_world' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mpi_integer' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mpi_real' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mpi_complex' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mpi_byte' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rank' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='size' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='r' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='c' currentDeclType='complex' currentDerivedTypeName=''
+DEBUG DerivedTypeDef Pre ENTRY
+DEBUG DerivedTypeDef Pre: name='mytype' bindC=0
+DEBUG DerivedTypeDef Pre ENTRY
+DEBUG DerivedTypeDef Pre: name='goodtype' bindC=1
+DEBUG derived type name from typeSpec: 'mytype'
+DEBUG EntityDecl: name='dt' currentDeclType='derived' currentDerivedTypeName='mytype'
+DEBUG derived type name from typeSpec: 'goodtype'
+DEBUG EntityDecl: name='dt_good' currentDeclType='derived' currentDerivedTypeName='goodtype'
+DEBUG ElseIfBlock fired
+DEBUG ElseIfBlock fired
+DEBUG ElseBlock fired
+[
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 36,
+    "rawCall": "call mpi_send(a, 10, mpi_integer, 1, 0, mpi_comm_world)",
+    "bufferName": "a",
+    "count": 10,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 41,
+    "rawCall": "call mpi_send(a(1:5:2), 5, mpi_integer, 1, 0, mpi_comm_world)",
+    "bufferName": "a(1:5:2)",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": false,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 46,
+    "rawCall": "call mpi_send(r, 10, mpi_integer, 1, 0, mpi_comm_world)",
+    "bufferName": "r",
+    "count": 10,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "real",
+    "actualSize": 10,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 47,
+    "rawCall": "call mpi_send(c, 5, mpi_real, 1, 0, mpi_comm_world)",
+    "bufferName": "c",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_real",
+    "variableType": "complex",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 53,
+    "rawCall": "call mpi_send(a, 5, mpi_integer, 1, 10, mpi_comm_world)",
+    "bufferName": "a",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 10,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_recv",
+    "lineNumber": 55,
+    "rawCall": "call mpi_recv(a, 10, mpi_integer, 0, 10, mpi_comm_world, ierr)",
+    "bufferName": "a",
+    "count": 10,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 0,
+    "tag": 10,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 60,
+    "rawCall": "call mpi_send(a, 5, mpi_integer, 1, 20, mpi_comm_world)",
+    "bufferName": "a",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 20,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 65,
+    "rawCall": "call mpi_send(a, 5, mpi_integer, 1, 30, mpi_comm_world)",
+    "bufferName": "a",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 30,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_recv",
+    "lineNumber": 67,
+    "rawCall": "call mpi_recv(r, 5, mpi_real, 0, 30, mpi_comm_world, ierr)",
+    "bufferName": "r",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_real",
+    "variableType": "real",
+    "actualSize": 10,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 0,
+    "tag": 30,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_recv",
+    "lineNumber": 73,
+    "rawCall": "call mpi_recv(a, 5, mpi_integer, 0, 0, mpi_comm_world)",
+    "bufferName": "a",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 0,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 74,
+    "rawCall": "call mpi_send(a, 5, mpi_integer, 1, 0, mpi_comm_world, ierr)",
+    "bufferName": "a",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 79,
+    "rawCall": "call mpi_send(dt, 1, mpi_byte, 1, 0, mpi_comm_world)",
+    "bufferName": "dt",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_byte",
+    "variableType": "derived",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": true,
+    "derivedFieldCount": 2,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 84,
+    "rawCall": "call mpi_send(dt_good, 1, mpi_byte, 1, 0, mpi_comm_world)",
+    "bufferName": "dt_good",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_byte",
+    "variableType": "derived",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": true,
+    "derivedFieldCount": 2,
+    "isBindC": true,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 89,
+    "rawCall": "call mpi_send(dt, 1, mpi_integer, 1, 0, mpi_comm_world)",
+    "bufferName": "dt",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "derived",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": true,
+    "derivedFieldCount": 2,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 95,
+    "rawCall": "call mpi_barrier(mpi_comm_world, ierr)",
+    "bufferName": "mpi_comm_world",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_bcast",
+    "lineNumber": 102,
+    "rawCall": "call mpi_bcast(a, 5, mpi_integer, 0, mpi_comm_world, ierr)",
+    "bufferName": "a",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": 0,
+    "tag": -1,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 103,
+    "rawCall": "call mpi_barrier(mpi_comm_world, ierr)",
+    "bufferName": "mpi_comm_world",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_barrier",
+    "lineNumber": 105,
+    "rawCall": "call mpi_barrier(mpi_comm_world, ierr)",
+    "bufferName": "mpi_comm_world",
+    "count": -1,
+    "isCountDynamic": false,
+    "datatype": "",
+    "variableType": "integer",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": -1,
+    "tag": -1,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_bcast",
+    "lineNumber": 106,
+    "rawCall": "call mpi_bcast(a, 5, mpi_integer, 0, mpi_comm_world, ierr)",
+    "bufferName": "a",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_iCOMM DEBUG: mpi_send line=36 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=41 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=46 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=47 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=53 rank=0 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_recv line=55 rank=1 comm=mpi_comm_world hasElse=1
+COMM DEBUG: mpi_send line=60 rank=0 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=65 rank=0 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_recv line=67 rank=1 comm=mpi_comm_world hasElse=1
+COMM DEBUG: mpi_recv line=73 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=74 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=79 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=84 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=89 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_barrier line=95 rank=0 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_bcast line=102 rank=0 comm=mpi_comm_world hasElse=1
+COMM DEBUG: mpi_barrier line=103 rank=0 comm=mpi_comm_world hasElse=1
+COMM DEBUG: mpi_barrier line=105 rank=-4 comm=mpi_comm_world hasElse=1
+COMM DEBUG: mpi_bcast line=106 rank=-4 comm=mpi_comm_world hasElse=1
+[MPI ERROR] Line 36: Count exceeds buffer size
+[MPI ERROR] Line 41: Non-contiguous array passed to MPI
+[MPI ERROR] Line 46: REAL variable used with incompatible MPI datatype
+[MPI ERROR] Line 47: COMPLEX variable used with incompatible MPI datatype
+[MPI ERROR] Line 55: Count exceeds buffer size
+[MPI ERROR] Line 73: MPI_Recv missing status argument (optional but recommended)
+[MPI ERROR] Line 74: MPI_Send has unexpected extra arguments
+[MPI ERROR] Line 79: Derived type without BIND(C) may be incompatible with MPI
+[MPI ERROR] Line 89: Derived type without BIND(C) may be incompatible with MPI
+[MPI ERROR] Line 89: Derived type field (REAL) mismatches MPI datatype
+[MPI ERROR] Line 36: Number of sends (8) does not match number of receives (1)
+[MPI ERROR] Line 53: Mismatch between send and receive counts
+[MPI ERROR] Line 60: Number of sends (1) does not match number of receives (0)
+[MPI ERROR] Line 65: Mismatch between send and receive datatypes
+[MPI ERROR] Line 95: Collective call may not be executed by all ranks
+[MPI ERROR] Line 105: else branch calls mpi_barrier but rank 0 calls mpi_bcast
+[MPI ERROR] Line 106: else branch calls mpi_bcast but rank 0 calls mpi_barrier
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:46:1: warning: Reference to the procedure 'mpi_send' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object types: INTEGER(4) vs REAL(4) [-Wincompatible-implicit-interfaces]
+  call mpi_send(r, 10, mpi_integer, 1, 0, mpi_comm_world) ! ERROR
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:36:1: previous reference to 'mpi_send'
+  call mpi_send(a, 10, mpi_integer, 1, 0, mpi_comm_world)  ! ERROR
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:47:1: warning: Reference to the procedure 'mpi_send' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object types: INTEGER(4) vs COMPLEX(4) [-Wincompatible-implicit-interfaces]
+  call mpi_send(c, 5, mpi_real, 1, 0, mpi_comm_world)     ! ERROR
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:36:1: previous reference to 'mpi_send'
+  call mpi_send(a, 10, mpi_integer, 1, 0, mpi_comm_world)  ! ERROR
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:67:1: warning: Reference to the procedure 'mpi_recv' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object types: INTEGER(4) vs REAL(4) [-Wincompatible-implicit-interfaces]
+  call mpi_recv(r, 5, mpi_real, 0, 30, mpi_comm_world, ierr) ! ERROR
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:55:1: previous reference to 'mpi_recv'
+  call mpi_recv(a, 10, mpi_integer, 0, 10, mpi_comm_world, ierr) ! ERROR (count mismatch)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:73:1: warning: Reference to the procedure 'mpi_recv' has an implicit interface that is distinct from another reference: distinct numbers of dummy arguments [-Wincompatible-implicit-interfaces]
+  call mpi_recv(a, 5, mpi_integer, 0, 0, mpi_comm_world) ! ERROR (missing status)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:55:1: previous reference to 'mpi_recv'
+  call mpi_recv(a, 10, mpi_integer, 0, 10, mpi_comm_world, ierr) ! ERROR (count mismatch)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:74:1: warning: Reference to the procedure 'mpi_send' has an implicit interface that is distinct from another reference: distinct numbers of dummy arguments [-Wincompatible-implicit-interfaces]
+  call mpi_send(a, 5, mpi_integer, 1, 0, mpi_comm_world, ierr) ! ERROR (extra arg)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:36:1: previous reference to 'mpi_send'
+  call mpi_send(a, 10, mpi_integer, 1, 0, mpi_comm_world)  ! ERROR
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:79:1: warning: Reference to the procedure 'mpi_send' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object shapes [-Wincompatible-implicit-interfaces]
+  call mpi_send(dt, 1, mpi_byte, 1, 0, mpi_comm_world) ! ERROR
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:36:1: previous reference to 'mpi_send'
+  call mpi_send(a, 10, mpi_integer, 1, 0, mpi_comm_world)  ! ERROR
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:84:1: warning: Reference to the procedure 'mpi_send' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object shapes [-Wincompatible-implicit-interfaces]
+  call mpi_send(dt_good, 1, mpi_byte, 1, 0, mpi_comm_world)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:36:1: previous reference to 'mpi_send'
+  call mpi_send(a, 10, mpi_integer, 1, 0, mpi_comm_world)  ! ERROR
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:89:1: warning: Reference to the procedure 'mpi_send' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object shapes [-Wincompatible-implicit-interfaces]
+  call mpi_send(dt, 1, mpi_integer, 1, 0, mpi_comm_world) ! ERROR
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration01_full_analysis.f90:36:1: previous reference to 'mpi_send'
+  call mpi_send(a, 10, mpi_integer, 1, 0, mpi_comm_world)  ! ERROR
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+nteger",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": 0,
+    "tag": -1,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  }
+]

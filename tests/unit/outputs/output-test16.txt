@@ -1,0 +1,61 @@
+DEBUG EntityDecl: name='mpi_comm_world' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mpi_integer' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='rank' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG ElseBlock fired
+COMM DEBUG: mpi_send line=14 rank=0 comm=mpi_comm_world hasElse=1
+COMM DEBUG: mpi_recv line=18 rank=-4 comm=mpi_comm_world hasElse=1
+[MPI ERROR] Line 18: MPI_Recv uses MPI_ANY_SOURCE — cannot statically verify sender
+[
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 14,
+    "rawCall": "call mpi_send(a, 5, mpi_integer, 1, 10, mpi_comm_world)",
+    "bufferName": "a",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 10,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  },
+  {
+    "functionName": "mpi_recv",
+    "lineNumber": 18,
+    "rawCall": "call mpi_recv(a, 5, mpi_integer, -1, 10, mpi_comm_world, ierr)",
+    "bufferName": "a",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": -1,
+    "tag": 10,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": true,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank == 0) then"
+  }
+]

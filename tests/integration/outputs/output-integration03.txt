@@ -1,0 +1,244 @@
+DEBUG EntityDecl: name='mpi_comm_world' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mpi_integer' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mpi_real' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mpi_complex' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mpi_byte' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='size' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='r' currentDeclType='real' currentDerivedTypeName=''
+DEBUG EntityDecl: name='c' currentDeclType='complex' currentDerivedTypeName=''
+DEBUG DerivedTypeDef Pre ENTRY
+DEBUG DerivedTypeDef Pre: name='particle' bindC=0
+DEBUG DerivedTypeDef Pre ENTRY
+DEBUG DerivedTypeDef Pre: name='good_particle' bindC=1
+DEBUG derived type name from typeSpec: 'particle'
+DEBUG EntityDecl: name='p' currentDeclType='derived' currentDerivedTypeName='particle'
+DEBUG derived type name from typeSpec: 'good_particle'
+DEBUG EntityDecl: name='gp' currentDeclType='derived' currentDerivedTypeName='good_particle'
+[
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 46,
+    "rawCall": "call mpi_send(r, 10, mpi_integer, 1, 0, mpi_comm_world)",
+    "bufferName": "r",
+    "count": 10,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "real",
+    "actualSize": 10,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 48,
+    "rawCall": "call mpi_send(c, 5, mpi_real, 1, 0, mpi_comm_world)",
+    "bufferName": "c",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_real",
+    "variableType": "complex",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 54,
+    "rawCall": "call mpi_send(a(1:5:2), 3, mpi_integer, 1, 0, mpi_comm_world)",
+    "bufferName": "a(1:5:2)",
+    "count": 3,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": false,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 60,
+    "rawCall": "call mpi_send(a, size * 4, mpi_integer, 1, 0, mpi_comm_world)",
+    "bufferName": "a",
+    "count": -1,
+    "isCountDynamic": true,
+    "datatype": "mpi_integer",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 66,
+    "rawCall": "call mpi_send(p, 1, mpi_byte, 1, 0, mpi_comm_world)",
+    "bufferName": "p",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_byte",
+    "variableType": "derived",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": true,
+    "derivedFieldCount": 2,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 72,
+    "rawCall": "call mpi_send(p, 1, mpi_integer, 1, 0, mpi_comm_world)",
+    "bufferName": "p",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "derived",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": true,
+    "derivedFieldCount": 2,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  },
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 78,
+    "rawCall": "call mpi_send(gp, 1, mpi_byte, 1, 0, mpi_comm_worlCOMM DEBUG: mpi_send line=46 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=48 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=54 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=60 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=66 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=72 rank=-1 comm=mpi_comm_world hasElse=0
+COMM DEBUG: mpi_send line=78 rank=-1 comm=mpi_comm_world hasElse=0
+[MPI ERROR] Line 46: REAL variable used with incompatible MPI datatype
+[MPI ERROR] Line 48: COMPLEX variable used with incompatible MPI datatype
+[MPI ERROR] Line 54: Non-contiguous array passed to MPI
+[MPI ERROR] Line 60: Dynamic count used with fixed-size buffer — potential overflow
+[MPI ERROR] Line 66: Derived type without BIND(C) may be incompatible with MPI
+[MPI ERROR] Line 72: Derived type without BIND(C) may be incompatible with MPI
+[MPI ERROR] Line 72: Derived type field (REAL) mismatches MPI datatype
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration03_datatypes_and_layouts.f90:48:1: warning: Reference to the procedure 'mpi_send' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object types: REAL(4) vs COMPLEX(4) [-Wincompatible-implicit-interfaces]
+  call mpi_send(c, 5, MPI_REAL, 1, 0, MPI_COMM_WORLD)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration03_datatypes_and_layouts.f90:46:1: previous reference to 'mpi_send'
+  call mpi_send(r, 10, MPI_INTEGER, 1, 0, MPI_COMM_WORLD)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration03_datatypes_and_layouts.f90:54:1: warning: Reference to the procedure 'mpi_send' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object types: REAL(4) vs INTEGER(4) [-Wincompatible-implicit-interfaces]
+  call mpi_send(a(1:5:2), 3, MPI_INTEGER, 1, 0, MPI_COMM_WORLD)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration03_datatypes_and_layouts.f90:46:1: previous reference to 'mpi_send'
+  call mpi_send(r, 10, MPI_INTEGER, 1, 0, MPI_COMM_WORLD)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration03_datatypes_and_layouts.f90:60:1: warning: Reference to the procedure 'mpi_send' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object types: REAL(4) vs INTEGER(4) [-Wincompatible-implicit-interfaces]
+  call mpi_send(a, size * 4, MPI_INTEGER, 1, 0, MPI_COMM_WORLD)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration03_datatypes_and_layouts.f90:46:1: previous reference to 'mpi_send'
+  call mpi_send(r, 10, MPI_INTEGER, 1, 0, MPI_COMM_WORLD)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration03_datatypes_and_layouts.f90:66:1: warning: Reference to the procedure 'mpi_send' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object shapes [-Wincompatible-implicit-interfaces]
+  call mpi_send(p, 1, MPI_BYTE, 1, 0, MPI_COMM_WORLD)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration03_datatypes_and_layouts.f90:46:1: previous reference to 'mpi_send'
+  call mpi_send(r, 10, MPI_INTEGER, 1, 0, MPI_COMM_WORLD)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration03_datatypes_and_layouts.f90:72:1: warning: Reference to the procedure 'mpi_send' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object shapes [-Wincompatible-implicit-interfaces]
+  call mpi_send(p, 1, MPI_INTEGER, 1, 0, MPI_COMM_WORLD)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration03_datatypes_and_layouts.f90:46:1: previous reference to 'mpi_send'
+  call mpi_send(r, 10, MPI_INTEGER, 1, 0, MPI_COMM_WORLD)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration03_datatypes_and_layouts.f90:78:1: warning: Reference to the procedure 'mpi_send' has an implicit interface that is distinct from another reference: incompatible dummy argument #1: incompatible dummy data object shapes [-Wincompatible-implicit-interfaces]
+  call mpi_send(gp, 1, MPI_BYTE, 1, 0, MPI_COMM_WORLD)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Users/namitha/mpi-checker-tool/tests/integration/programs/integration03_datatypes_and_layouts.f90:46:1: previous reference to 'mpi_send'
+  call mpi_send(r, 10, MPI_INTEGER, 1, 0, MPI_COMM_WORLD)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+d)",
+    "bufferName": "gp",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_byte",
+    "variableType": "derived",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": true,
+    "derivedFieldCount": 2,
+    "isBindC": true,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  }
+]

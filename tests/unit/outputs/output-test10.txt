@@ -1,0 +1,29 @@
+COMM DEBUG: mpi_bcast line=4 rank=0 comm=mpi_comm_world hasElse=0
+[MPI ERROR] Line 4: Collective call may not be executed by all ranks
+[
+  {
+    "functionName": "mpi_bcast",
+    "lineNumber": 4,
+    "rawCall": "call mpi_bcast(a,5,mpi_integer,0,mpi_comm_world,ierr)",
+    "bufferName": "a",
+    "count": 5,
+    "isCountDynamic": false,
+    "datatype": "mpi_integer",
+    "variableType": "unknown",
+    "actualSize": -1,
+    "dimensions": -1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": true,
+    "partnerRank": 0,
+    "tag": -1,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": "if(rank==0) then"
+  }
+]

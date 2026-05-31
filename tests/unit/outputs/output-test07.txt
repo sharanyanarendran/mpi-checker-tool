@@ -1,0 +1,33 @@
+DEBUG DerivedTypeDef Pre ENTRY
+DEBUG DerivedTypeDef Pre: name='particle' bindC=0
+DEBUG derived type name from typeSpec: 'particle'
+DEBUG EntityDecl: name='p' currentDeclType='derived' currentDerivedTypeName='particle'
+COMM DEBUG: mpi_send line=10 rank=-1 comm=mpi_comm_world hasElse=0
+[MPI ERROR] Line 10: Derived type without BIND(C) may be incompatible with MPI
+[
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 10,
+    "rawCall": "call mpi_send(p,1,mpi_byte,1,0,mpi_comm_world)",
+    "bufferName": "p",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "mpi_byte",
+    "variableType": "derived",
+    "actualSize": -1,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": true,
+    "derivedFieldCount": 2,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  }
+]

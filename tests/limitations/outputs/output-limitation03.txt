@@ -1,0 +1,34 @@
+DEBUG EntityDecl: name='mpi_comm_world' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='mpi_integer' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='ierr' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='a' currentDeclType='integer' currentDerivedTypeName=''
+DEBUG EntityDecl: name='newtype' currentDeclType='integer' currentDerivedTypeName=''
+COMM DEBUG: mpi_send line=21 rank=-1 comm=mpi_comm_world hasElse=0
+[MPI ERROR] Line 21: Custom or unrecognized MPI datatype 'newtype' — cannot validate type compatibility statically
+[
+  {
+    "functionName": "mpi_send",
+    "lineNumber": 21,
+    "rawCall": "call mpi_send(a, 1, newtype, 1, 0, mpi_comm_world)",
+    "bufferName": "a",
+    "count": 1,
+    "isCountDynamic": false,
+    "datatype": "newtype",
+    "variableType": "integer",
+    "actualSize": 5,
+    "dimensions": 1,
+    "isAssumedShape": false,
+    "isContiguous": true,
+    "isCollective": false,
+    "partnerRank": 1,
+    "tag": 0,
+    "communicator": "mpi_comm_world",
+    "hasOptionalArgs": false,
+    "isDerivedType": false,
+    "derivedFieldCount": 0,
+    "isBindC": false,
+    "isPotentialWrapper": false,
+    "isInsideLoop": false,
+    "rankConditionText": ""
+  }
+]
