@@ -20,251 +20,36 @@ The implementation integrates into Flang's semantic analysis pipeline and produc
 
 # Features
 
-## Buffer Safety Analysis
+The analyzer currently supports detection of:
 
-Detects:
+* Buffer overflow and count mismatches
+* MPI datatype compatibility violations
+* Non-contiguous buffer usage
+* Send/receive mismatches
+* Collective reachability violations
+* Collective ordering violations
+* Communicator inconsistencies
+* Loop-based collective hazards
+* Derived type interoperability issues
+* MPI optional argument misuse
 
-* Buffer overflow in MPI_Send/MPI_Recv
-* Dynamic count usage with fixed-size buffers
-* Potential count mismatches
+Diagnostics include:
 
-Example:
+* Source location information
+* Human-readable error descriptions
+* Suggested remediation actions
 
-```fortran
-integer :: a(5)
-
-call mpi_send(a, 10, MPI_INTEGER, 1, 0, MPI_COMM_WORLD)
-```
-
-Diagnostic:
-
-```text
-[MPI ERROR] Buffer count exceeds declared array size
-```
-
----
-
-## Datatype Compatibility Checking
-
-Detects mismatches between:
-
-* INTEGER buffers and MPI_REAL
-* REAL buffers and MPI_INTEGER
-* COMPLEX buffers and incompatible MPI datatypes
-
-Example:
-
-```fortran
-real :: r(10)
-
-call mpi_send(r, 10, MPI_INTEGER, 1, 0, MPI_COMM_WORLD)
-```
+The analyzer can additionally export diagnostics in JSON format for integration with external tooling and IDEs.
 
 ---
 
-## Send/Receive Matching
+# Documentation
 
-Verifies:
+Detailed project documentation is available in:
 
-* Matching counts
-* Matching datatypes
-* Matching source/destination ranks
-* Matching tags
-
-Example:
-
-```fortran
-call mpi_send(a,5,MPI_INTEGER,1,10,MPI_COMM_WORLD)
-
-call mpi_recv(a,10,MPI_INTEGER,0,10,MPI_COMM_WORLD,ierr)
-```
-
-Diagnostic:
-
-```text
-[MPI ERROR] Send/Recv count mismatch
-```
-
----
-
-## Collective Communication Analysis
-
-Checks:
-
-### Collective Reachability
-
-```fortran
-if(rank == 0) then
-  call mpi_barrier(MPI_COMM_WORLD,ierr)
-end if
-```
-
-Diagnostic:
-
-```text
-[MPI ERROR] Collective call may not be executed by all ranks
-```
-
----
-
-### Collective Ordering
-
-```fortran
-if(rank==0) then
-  call mpi_bcast(...)
-  call mpi_barrier(...)
-else
-  call mpi_barrier(...)
-  call mpi_bcast(...)
-end if
-```
-
-Diagnostic:
-
-```text
-[MPI ERROR] Collective ordering mismatch
-```
-
----
-
-### Communicator Consistency
-
-```fortran
-if(rank==0) then
-  call mpi_bcast(...,MPI_COMM_WORLD,...)
-else
-  call mpi_bcast(...,MPI_COMM_SELF,...)
-end if
-```
-
-Diagnostic:
-
-```text
-[MPI ERROR] Communicator mismatch
-```
-
----
-
-## Loop-Based Collective Analysis
-
-Detects collectives executed inside rank-dependent loops.
-
-Example:
-
-```fortran
-do i=1,size
-  if(rank==0) then
-    call mpi_bcast(...)
-  end if
-end do
-```
-
-Diagnostic:
-
-```text
-[MPI ERROR] Collective call inside loop with rank condition
-```
-
----
-
-## Derived Type Validation
-
-Supports Fortran derived types.
-
-Detects:
-
-* Non-BIND(C) derived types used in MPI communication
-* Arrays of derived types with implementation-dependent layout
-
-Example:
-
-```fortran
-type :: particle
-  integer :: id
-  real :: mass
-end type
-
-call mpi_send(p,4,MPI_BYTE,1,0,MPI_COMM_WORLD)
-```
-
-Diagnostic:
-
-```text
-[MPI ERROR] Derived type without BIND(C) may be incompatible with MPI
-```
-
----
-
-## Optional Argument Verification
-
-Detects incorrect MPI API usage.
-
-Examples:
-
-```fortran
-call mpi_recv(a,5,MPI_INTEGER,0,0,MPI_COMM_WORLD)
-```
-
-```fortran
-call mpi_send(a,5,MPI_INTEGER,1,0,MPI_COMM_WORLD,ierr)
-```
-
----
-
-# Architecture
-
-The implementation consists of three major components.
-
-## 1. MPI Call Extraction
-
-Files:
-
-```text
-flang/lib/Semantics/mpi-checker.cpp
-flang/include/flang/MPICallSite.h
-```
-
-Responsibilities:
-
-* Detect MPI API calls
-* Extract arguments
-* Infer datatypes
-* Infer communicator usage
-* Infer rank conditions
-* Record semantic metadata
-
----
-
-## 2. Rule Engine
-
-Files:
-
-```text
-flang/lib/Semantics/rule-engine.cpp
-flang/lib/Semantics/rule-engine.h
-```
-
-Responsibilities:
-
-* Apply semantic checks
-* Generate diagnostics
-* Match communication patterns
-
----
-
-## 3. Flang Integration
-
-Files:
-
-```text
-flang/lib/Semantics/semantics.cpp
-flang/lib/Semantics/CMakeLists.txt
-```
-
-Responsibilities:
-
-* Execute analysis during semantic processing
-* Emit diagnostics alongside Flang errors
+* DESIGN.md — System architecture and design decisions
+* IMPLEMENTATION.md — Technical implementation details
+* EVALUATION.md — Testing methodology, results, limitations, and benchmark evaluation
 
 ---
 
@@ -274,6 +59,11 @@ Responsibilities:
 mpi-checker-tool/
 
 ├── 0001-MPI-checker-implementation-with-rules-and-semantics-.patch
+
+├── README.md
+├── DESIGN.md
+├── IMPLEMENTATION.md
+├── EVALUATION.md
 
 ├── tests
 │   ├── unit
@@ -295,7 +85,7 @@ mpi-checker-tool/
 
 # Applying the Patch
 
-## Step 1: Clone LLVM
+## Clone LLVM
 
 ```bash
 git clone https://github.com/llvm/llvm-project.git
@@ -303,11 +93,7 @@ git clone https://github.com/llvm/llvm-project.git
 cd llvm-project
 ```
 
----
-
-## Step 2: Apply Patch
-
-Copy the patch file into the repository root and run:
+## Apply the Patch
 
 ```bash
 git apply 0001-MPI-checker-implementation-with-rules-and-semantics-.patch
@@ -321,7 +107,7 @@ git status
 
 ---
 
-## Step 3: Configure Build
+# Configure and Build
 
 ```bash
 mkdir build
@@ -333,9 +119,7 @@ cmake -G Ninja \
   ../llvm
 ```
 
----
-
-## Step 4: Build Flang
+Build Flang:
 
 ```bash
 ninja flang-new
@@ -359,25 +143,21 @@ Example:
   test.f90
 ```
 
-Diagnostics will be printed during semantic analysis.
+Diagnostics are produced during semantic analysis.
 
 ---
 
-# Running Unit Tests
+# Running Tests
 
-Example:
+## Unit Tests
 
 ```bash
 ./build/bin/flang-new \
   -fsyntax-only \
-  tests/unit/programs/test01_buffer_overflow.f90
+  tests/unit/programs/test03_datatype_mismatch.f90
 ```
 
-Repeat similarly for all test programs.
-
----
-
-# Running Integration Tests
+## Integration Tests
 
 ```bash
 ./build/bin/flang-new \
@@ -397,83 +177,7 @@ Repeat similarly for all test programs.
   tests/integration/programs/integration03_datatypes_and_layouts.f90
 ```
 
----
-
-# Test Suite
-
-## Unit Tests
-
-20 test programs covering:
-
-* Buffer overflow
-* Datatype mismatch
-* Send/recv matching
-* Optional arguments
-* Derived types
-* Collective analysis
-* Loop analysis
-* Communicator consistency
+Refer to EVALUATION.md for a complete description of the test suite and experimental results.
 
 ---
 
-## Integration Tests
-
-3 large programs combining multiple rules simultaneously.
-
----
-
-## Limitation Tests
-
-Demonstrate known limitations including:
-
-* Wrapper detection
-* Custom MPI datatypes
-* Assumed-shape arrays
-* Deep interprocedural analysis
-* Complex rank predicates
-
----
-
-## NAS Benchmark Evaluation
-
-Real-world MPI communication patterns were studied using the NAS Parallel Benchmarks (NPB 3.4.4 MPI version), including:
-
-* CG (Conjugate Gradient)
-* MG (Multi-Grid)
-* EP (Embarrassingly Parallel)
-
-The benchmarks were successfully compiled and executed using OpenMPI, and selected benchmark source files were analyzed using the modified Flang frontend.
-
-Observed MPI communication routines include:
-
-* MPI_Send
-* MPI_Irecv
-* MPI_Wait
-* MPI_Bcast
-* MPI_Barrier
-* MPI_Reduce
-* MPI_Allreduce
-* MPI_Init
-* MPI_Finalize
-* MPI_Abort
-
-The MPI checker successfully extracted communication metadata and generated diagnostics on NAS benchmark source code, demonstrating applicability beyond synthetic unit and integration tests. The evaluation confirms that the implemented rule set targets communication patterns commonly found in real-world HPC applications.
-
-
-# Limitations
-
-Current limitations include:
-
-* Full interprocedural analysis is not implemented.
-* Custom MPI datatypes cannot be validated precisely.
-* Complex rank predicates are handled conservatively.
-* Wrapper functions are reported as potential MPI wrappers.
-* Runtime-dependent communicator behavior cannot be fully resolved statically.
-
----
-
-# Author
-
-Sharanya Narendran
-
-MPI Semantic Analyzer for LLVM Flang
